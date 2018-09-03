@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/03 12:39:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/03 17:01:35 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int	main(int ac, char **av)
 		sdl_loop(&e, &v);
 		sdl_destroy(&v);
 	}
+	else
+		ft_putstr("usage: ./rt <scene's file>\n");
 	return (0);
 }
