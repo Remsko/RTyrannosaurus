@@ -15,6 +15,13 @@ SRC_NAME =	main.c \
 			sdl_fps.c \
 			raytracer_core.c \
 			raytracer_tracer.c \
+			color_add.c \
+			color_add_const.c \
+			color_divide.c \
+			color_divide_const.c \
+			color_multiply.c \
+			color_multiply_const.c \
+			new_ray.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

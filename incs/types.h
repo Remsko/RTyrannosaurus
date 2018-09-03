@@ -43,8 +43,8 @@ typedef	struct	s_camera
 
 typedef struct s_env
 {
+	t_camera *camera;
 	t_events events;
-	t_camera camera;
 	int		samples;
 	int		rebound;
 } t_env;
