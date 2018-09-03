@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/01 14:27:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/03 12:38:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf.h"
+#include "rt.h"
 
 static void		sdl(void)
 {

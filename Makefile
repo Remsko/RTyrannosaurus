@@ -13,6 +13,8 @@ SRC_NAME =	main.c \
 			sdl_draw.c \
 			sdl_event.c \
 			sdl_fps.c \
+			raytracer_core.c \
+			raytracer_tracer.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

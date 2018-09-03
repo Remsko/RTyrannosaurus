@@ -39,12 +39,14 @@ typedef	struct	s_camera
 	t_vector	pos;
 	t_vector	rot;
 	t_vector	plane;
-}				t_camera
+}				t_camera;
 
 typedef struct s_env
 {
 	t_events events;
 	t_camera camera;
+	int		samples;
+	int		rebound;
 } t_env;
 
 #endif

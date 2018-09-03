@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:42:39 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/01 14:45:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/09/03 12:58:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_vector
 
 typedef struct s_color
 {
-	double r;
-	double g;
-	double b;
+	Uint8 r;
+	Uint8 g;
+	Uint8 b;
 } t_color;
 
 typedef struct s_object_type
