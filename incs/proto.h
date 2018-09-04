@@ -17,7 +17,7 @@ void    sdl_loop(t_env *e, t_visu *v);
 
 void    raytracer_core(t_env *e, t_visu *v);
 
-void    raytracer_tracer(t_env *e, t_visu *v, t_color *c, int x, int y);
+void    raytracer_tracer(t_env *e, t_visu *v, t_ray *ray, t_color *c, int x, int y);
 
 void    color_multiply(t_color target, t_color amount);
 
