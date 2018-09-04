@@ -22,6 +22,13 @@ SRC_NAME =	main.c \
 			color_multiply.c \
 			color_multiply_const.c \
 			new_ray.c \
+			solver_quadratic.c \
+			vector_sub.c \
+			vector_add.c \
+			vector_mult.c \
+			vector_dot.c \
+			inter_sphere.c \
+			inter_algo.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

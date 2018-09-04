@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intersection_algo.c                                :+:      :+:    :+:   */
+/*   inter_algo.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ t_bool  inter_algo(t_object *object, t_ray *ray, int object_nb)
     i = 0;
     while (i < object_nb)
     {
-        tmp = object[i].inter(ray);
+        tmp = object[i].inter(&object[i], ray);
         if (tmp < t)
             t = tmp;
         ++i;
