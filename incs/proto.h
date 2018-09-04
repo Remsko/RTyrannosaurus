@@ -33,4 +33,6 @@ void    color_add_const(t_color target, Uint8 amount);
 
 t_ray   new_ray(t_camera *cam, double x, double y);
 
+t_bool  inter_algo(t_object *object, t_ray *ray, int object_nb);
+
 #endif
