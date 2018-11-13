@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:45:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 20:38:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/13 21:32:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "vector.h"
 
 void    vector_add(t_vector *a, t_vector *b)
 {

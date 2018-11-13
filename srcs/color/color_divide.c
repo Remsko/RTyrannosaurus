@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:03:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 20:38:14 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/13 20:47:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "color.h"
 
 void    color_divide(t_color *target, t_color *amount)
 {

@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   vector_dot_product.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 14:42:39 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:24:45 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/04 12:42:37 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/13 21:39:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "vector.h"
 
-# include "rt.h"
-
-typedef struct s_object_type
+double    vector_dot_product(t_vector *a, t_vector *b)
 {
-	unsigned char sphere : 1;
-	unsigned char plan : 1;
-	unsigned char cylinder : 1;
-	unsigned char cone : 1;
-	unsigned char fill : 4;
-} t_object_type;
-
-typedef struct s_options
-{
-	t_bool exit : 1;
-	t_bool draw : 1;
-	t_bool fill : 6;
-} t_options;
-
-#endif
+    return (a->x * b->x + a->y * b->y + a->z * b->z);
+}

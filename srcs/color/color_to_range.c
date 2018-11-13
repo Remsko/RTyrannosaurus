@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_dot.c                                       :+:      :+:    :+:   */
+/*   color_to_range.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 12:42:37 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 20:38:18 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/11/13 21:00:32 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/13 21:05:20 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "color.h"
 
-double    vector_dot(t_vector *a, t_vector *b)
+void color_to_range_0_255(t_color *color)
 {
-    double ret;
+    color_multiply_const(color, 255.0);
+}
 
-    ret = a->x * b->x + a->y * b->y + a->z * b->z;
-    return (ret);
+void color_to_range_0_1(t_color *color)
+{
+    color_divide_const(color, 255.0);
 }
