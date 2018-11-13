@@ -1,4 +1,4 @@
-#include "rt.h"
+#include "visu.h"
 
 void	sdl_event(t_events *e)
 {

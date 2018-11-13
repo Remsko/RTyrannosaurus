@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter_algo.c                                :+:      :+:    :+:   */
+/*   sdl_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 10:35:33 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/04 10:49:49 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/01 14:25:36 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/13 21:47:49 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_bool  inter_algo(t_object *object, t_ray *ray, int object_nb)
+void    sdl_loop(t_env *e, t_visu *v)
 {
-    double t;
-    double tmp;
-    int i;
-
-    t = 0x7FFFFFFF;
-    i = 0;
-    while (i < object_nb)
-    {
-        tmp = object[i].inter(&object[i], ray);
-        if (tmp < t)
-            t = tmp;
-        ++i;
-    }
-    if (t == 0x7FFFFFFF)
-        return (FALSE);
-    return (TRUE);
+	ft_bzero(&e->events, sizeof(t_events));
+	e->events.options.draw = TRUE;
+	while (e->events.options.exit == FALSE)
+	{
+		sdl_fps();
+		sdl_event(&e->events);
+		if (e->events.options.draw == TRUE)
+		{
+			sdl_draw(e, v);
+			e->events.options.draw = FALSE;
+		}
+	}
 }

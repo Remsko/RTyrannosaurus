@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_ray.c                                          :+:      :+:    :+:   */
+/*   sdl_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 16:31:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/09/04 09:51:29 by rpinoit          ###   ########.fr       */
+/*   Created: 2018/09/01 14:27:01 by rpinoit           #+#    #+#             */
+/*   Updated: 2018/11/13 21:58:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "visu.h"
 
-t_ray    new_ray(t_camera *cam, double x, double y)
+void    sdl_draw(t_env *e, t_visu *v)
 {
-    t_ray ray;
-
-    ray.ori = cam->pos;
-    ray.dir.x = x;
-    ray.dir.y = y;
-    ray.dir.z = cam->dist;
-    return (ray);
+	(void)e;
+	SDL_SetRenderDrawColor(v->renderer, 0, 0, 0, 255);
+	SDL_RenderClear(v->renderer);
+	SDL_RenderPresent(v->renderer);
 }

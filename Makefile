@@ -7,28 +7,6 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
-			sdl_init.c \
-			sdl_destroy.c \
-			sdl_loop.c \
-			sdl_draw.c \
-			sdl_event.c \
-			sdl_fps.c \
-			raytracer_core.c \
-			raytracer_tracer.c \
-			color_add.c \
-			color_add_const.c \
-			color_divide.c \
-			color_divide_const.c \
-			color_multiply.c \
-			color_multiply_const.c \
-			new_ray.c \
-			solver_quadratic.c \
-			vector_sub.c \
-			vector_add.c \
-			vector_mult.c \
-			vector_dot.c \
-			inter_sphere.c \
-			inter_algo.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
