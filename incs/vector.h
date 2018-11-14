@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:39:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 10:59:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,31 @@ t_vector vector_sub_ret(t_vector *a, t_vector *b);
 t_vector vector_sub_const_ret(t_vector *vector, const double amount);
 
 /*
+** Vector divide variations
+*/
+
+void vector_divide(t_vector *a, t_vector *b);
+void vector_divide_const(t_vector *vector, const double amount);
+t_vector vector_divide_ret(t_vector *a, t_vector *b);
+t_vector vector_divide_const_ret(t_vector *vector, const double amount);
+
+/*
 ** Dot product calculation
 ** in vector_dot_product.c
 */
 
 double vector_dot_product(t_vector *a, t_vector *b);
+
+/*
+** Vector magnitude calculation
+*/
+
+double vector_magnitude(t_vector *vector);
+
+/*
+** Vector normalization to reduce vector len to 1
+*/
+
+void vector_normalize(t_vector *vector);
 
 #endif

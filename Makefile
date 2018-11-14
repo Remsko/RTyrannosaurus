@@ -12,6 +12,18 @@ SRC_NAME =	main.c \
 			sdl/sdl_loop.c \
 			sdl/sdl_draw.c \
 			sdl/sdl_event.c \
+			color/color_add.c \
+			color/color_divide.c \
+			color/color_multiply.c \
+			color/color_to_max.c \
+			color/color_to_range.c \
+			vector/vector_add.c \
+			vector/vector_multiply.c \
+			vector/vector_divide.c \
+			vector/vector_sub.c \
+			vector/vector_dot_product.c \
+			vector/vector_magnitude.c \
+			vector/vector_normalize.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
