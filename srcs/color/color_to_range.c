@@ -6,11 +6,15 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:00:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:05:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:20:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
+
+/*
+** Set rgb colors in a certain range
+*/
 
 void color_to_range_0_255(t_color *color)
 {

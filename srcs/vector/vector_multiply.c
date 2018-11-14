@@ -6,11 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:46:21 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:32:49 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:17:35 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+
+/*
+** Compute multiplication on a vector with a constant or an other vector
+** return a new vector with pure function if necessary
+*/
 
 void vector_multiply(t_vector *a, t_vector *b)
 {

@@ -6,11 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 16:03:48 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 20:47:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:19:08 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
+
+/*
+** Compute addition on a color with a constant or an other color
+** return a new color with pure function if necessary
+*/
 
 void color_add(t_color *target, t_color *amount)
 {

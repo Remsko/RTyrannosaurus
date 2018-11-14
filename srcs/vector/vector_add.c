@@ -6,11 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 12:45:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:32:48 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:16:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+
+/*
+** Compute addition on a vector with a constant or an other vector
+** return a new vector with pure function if necessary
+*/
 
 void    vector_add(t_vector *a, t_vector *b)
 {

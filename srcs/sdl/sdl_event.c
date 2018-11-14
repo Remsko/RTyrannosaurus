@@ -1,5 +1,9 @@
 #include "visu.h"
 
+/*
+** Capture keyboard events
+*/
+
 void	sdl_event(t_events *e)
 {
 	SDL_Event   event;

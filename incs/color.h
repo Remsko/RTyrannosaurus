@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:46:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:30:13 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:05:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void color_to_range_0_1(t_color *color);
 ** in color_to_max.c
 */
 
+void color_to_max(t_color *color, const double maximum);
 void color_to_max_255(t_color *color);
 void color_to_max_1(t_color *color);
 

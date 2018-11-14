@@ -6,11 +6,15 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:58:54 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:08:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visu.h"
+
+/*
+** SDL initialisation
+*/
 
 static void		sdl(void)
 {

@@ -6,12 +6,16 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/14 10:15:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 13:08:19 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include "visu.h"
+
+/*
+** Drawing loop
+*/
 
 void    sdl_loop(t_env *e, t_visu *v)
 {
