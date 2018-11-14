@@ -7,6 +7,11 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
+			sdl/sdl_destroy.c \
+			sdl/sdl_init.c \
+			sdl/sdl_loop.c \
+			sdl/sdl_draw.c \
+			sdl/sdl_event.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -15,9 +20,9 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
-CPPFLAGS = -Iincs -Ilibft  -I ~/.brew/include/SDL2
+CPPFLAGS = -I./incs -I./libft  -I ~/.brew/include/SDL2
 LDFLAGS = -Llibft -L ~/.brew/lib
-LDLIBS = -lft -lSDL2
+LDLIBS = -lft -lSDL2 -lm
 
 all: $(NAME)
 
@@ -26,6 +31,9 @@ $(LIBFT):
 
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
+	mkdir -p $(OBJ_PATH)vector
+	mkdir -p $(OBJ_PATH)color
+	mkdir -p $(OBJ_PATH)sdl
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

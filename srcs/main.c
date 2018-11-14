@@ -6,11 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/13 21:43:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2018/11/14 10:00:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+#include "visu.h"
 
 int	main(int ac, char **av)
 {
