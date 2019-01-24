@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:07:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/24 17:28:18 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/24 17:44:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include "color.h"
 #include "vector.h"
+
+/*
+** Light type list aka index for *f[]
+*/
 
 typedef enum    e_light_type
 {
