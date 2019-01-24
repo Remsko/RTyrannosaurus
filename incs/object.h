@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/24 17:24:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/24 17:30:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include "vector.h"
 
-/* Object list aka index for *f[] */
+/*
+** Object type list aka index for *f[]
+*/
 
 typedef enum			e_object_type
 {
