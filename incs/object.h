@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/24 14:22:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/24 17:24:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ typedef enum			e_object_type
     OBJECT_MAX,
 } t_object_type;
 
-/* Generic structure for all object type */
+/*
+** Generic structure for all object type
+*/
 
 typedef struct  s_object
 {
     void    *spec;
+    //t_mater   mater;
     t_object_type type;
 } t_object;
 
 /* 
-** All object strucures
+** All object structures
 ** Describe object in space
 */
 
