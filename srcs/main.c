@@ -6,12 +6,19 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/14 10:00:50 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/24 11:54:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include "visu.h"
+
+void usage(char *bin)
+{
+	ft_putstr("usage: ");
+	ft_putstr(bin);
+	ft_putstr("<scene file>\n");
+}
 
 int	main(int ac, char **av)
 {
@@ -29,6 +36,6 @@ int	main(int ac, char **av)
 		sdl_destroy(&v);
 	}
 	else
-		ft_putstr("usage: ./rt <scene's file>\n");
+		usage(av[0]);
 	return (0);
 }
