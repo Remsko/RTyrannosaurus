@@ -6,12 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/25 10:21:29 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/25 17:20:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "rt.h"
-#include "visu.h"
+#include "parser.h"
+//#include "visu.h"
 
 void usage(char *bin)
 {
@@ -23,16 +25,18 @@ void usage(char *bin)
 int	main(int ac, char **av)
 {
 	t_env	e;
-	t_visu	v;
+	//t_visu	v;
 
 	ft_bzero(&e, sizeof(t_env));
-	v.screen.width = WIN_W;
-	v.screen.height = WIN_H;
+	//v.screen.width = WIN_W;
+	//v.screen.height = WIN_H;
 	if (ac == 2)
 	{
-		sdl_init(&v);
-		sdl_loop(&e, &v);
-		sdl_destroy(&v);
+		if ((e.scene = parser_file(av[1])) == NULL)
+			return (1);
+		//sdl_init(&v);
+		//sdl_loop(&e, &v);
+		//sdl_destroy(&v);
 	}
 	else
 		usage(av[0]);

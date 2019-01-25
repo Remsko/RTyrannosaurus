@@ -1,0 +1,37 @@
+{
+	"config":
+	{
+		"viewplane": [1000, 1000],
+		"ambient": 0.3
+	},
+	"camera":
+	{
+		"position": [0, -200, 0],
+		"direction": [0, 0, 0],
+		"fov": 90
+	},
+	"objects":
+	[
+		{
+			"type": "sphere",
+			"center": [0, 0, 0],
+			"mater":
+			{
+				"ambient": [255, 255, 255],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 50
+		}
+	],
+	"lights":
+	[
+		{
+			"type": "point",
+			"source": [0, 100, 100],
+			"color": [255, 255, 255],
+			"intensity": 0.3
+		}
+	]
+}

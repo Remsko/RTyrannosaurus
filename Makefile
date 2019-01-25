@@ -7,11 +7,6 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
-			sdl/sdl_destroy.c \
-			sdl/sdl_init.c \
-			sdl/sdl_loop.c \
-			sdl/sdl_draw.c \
-			sdl/sdl_event.c \
 			color/color_add.c \
 			color/color_divide.c \
 			color/color_multiply.c \
@@ -24,7 +19,7 @@ SRC_NAME =	main.c \
 			vector/vector_dot_product.c \
 			vector/vector_magnitude.c \
 			vector/vector_normalize.c \
-			parser/parser_scene.c \
+			parser/parser_file.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

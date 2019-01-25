@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_scene.c                                     :+:      :+:    :+:   */
+/*   parser_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/25 16:04:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/25 17:22:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "rt.h"
+#include "parser.h"
+
 #include "json_parser.h"
+#include "libft.h"
 
 char    *read_file(int fd)
 {
@@ -38,16 +42,18 @@ char    *read_file(int fd)
     return (str);
 }
 
-t_scene *parse_scene(char *path)
+t_scene *parser_file(char *path)
 {
     t_json_value *json;
     t_scene *scene;
+    char *file;
     int fd;
 
     if ((fd = open(path, O_RDONLY)) == -1)
         return (NULL);
     file = read_file(fd);
     json = json_parse(file);
-    scene = NULL;
+    scene = parser_scene(json);
+    (void)json;
     return (scene);
 }

@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/25 16:57:55 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/25 17:22:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#ifndef PARSER_H
+# define PARSER_H
 
-#include "camera.h"
+#include "rt.h"
+#include "json_parser.h"
 
-#define WIN_W 1000
-#define WIN_H 1000
+t_scene *parser_file(char *path);
 
-/*
-** Environment structure: Raytracer configurations
-*/
-
-typedef struct s_scene
-{
-    t_camera *camera;
-} t_scene;
-
-typedef struct s_env
-{
-    t_scene *scene;
-} t_env;
+t_scene *parser_scene(t_json_value *json);
 
 #endif
