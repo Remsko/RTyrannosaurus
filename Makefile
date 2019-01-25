@@ -24,6 +24,7 @@ SRC_NAME =	main.c \
 			vector/vector_dot_product.c \
 			vector/vector_magnitude.c \
 			vector/vector_normalize.c \
+			parser/parser_scene.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -53,6 +54,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)vector
 	mkdir -p $(OBJ_PATH)color
 	mkdir -p $(OBJ_PATH)sdl
+	mkdir -p $(OBJ_PATH)parser
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

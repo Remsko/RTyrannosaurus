@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/24 11:54:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/25 10:21:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(int ac, char **av)
 	t_env	e;
 	t_visu	v;
 
-	(void)av;
 	ft_bzero(&e, sizeof(t_env));
 	v.screen.width = WIN_W;
 	v.screen.height = WIN_H;
