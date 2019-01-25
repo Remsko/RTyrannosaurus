@@ -32,9 +32,16 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
-CPPFLAGS = -I./incs -I./libft  -I ~/.brew/include/SDL2
-LDFLAGS = -Llibft -L ~/.brew/lib
-LDLIBS = -lft -lSDL2 -lm
+CPPFLAGS = -I./incs \
+			-I./libft \
+			-I./libjson/incs \
+			-I ~/.brew/include/SDL2 \
+
+LDFLAGS = -Llibft \
+			-Llibjson \
+			-L ~/.brew/lib \
+
+LDLIBS = -lft -lSDL2 -lm -ljson
 
 all: $(NAME)
 
