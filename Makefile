@@ -7,6 +7,11 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
+			sdl/sdl_destroy.c \
+			sdl/sdl_init.c \
+			sdl/sdl_loop.c \
+			sdl/sdl_draw.c \
+			sdl/sdl_event.c \
 			color/color_add.c \
 			color/color_divide.c \
 			color/color_multiply.c \

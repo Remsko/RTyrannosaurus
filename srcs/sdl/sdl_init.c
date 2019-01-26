@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/14 13:08:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 18:25:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		sdl(void)
 static void		window(t_visu *v)
 {
 	if ((v->window = SDL_CreateWindow(
-					"Wolf3D",
+					"RT",
 					SDL_WINDOWPOS_UNDEFINED,
 					SDL_WINDOWPOS_UNDEFINED,
 					v->screen.width,

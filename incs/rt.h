@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 16:34:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 18:12:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,26 @@
 ** Environment structure: Raytracer configurations
 */
 
+typedef struct s_viewplane
+{
+    double width;
+    double height;
+} t_viewplane;
+
+typedef struct s_config
+{
+    t_viewplane viewplane;
+    double ambient;
+} t_config;
+
 typedef struct s_scene
 {
+    t_config *config;
     t_camera *camera;
     t_object *objects;
     //size_t o_length;
     t_light *lights;
     //size_t l_length;
 } t_scene;
-
-typedef struct s_env
-{
-    t_scene *scene;
-} t_env;
 
 #endif

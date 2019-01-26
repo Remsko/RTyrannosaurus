@@ -55,14 +55,14 @@ void sdl_destroy(t_visu *v);
 ** in sdl_loop.c
 */
 
-void sdl_loop(t_env *e, t_visu *v);
+void sdl_loop(t_scene *scene, t_visu *v);
 
 /*
 ** Draw in SDL_Renderer for rendering
 ** in sdl_draw.c
 */
 
-void sdl_draw(t_env *e, t_visu *v);
+void sdl_draw(t_scene *s, t_visu *v);
 
 /*
 ** Capture keyboard events to interact
