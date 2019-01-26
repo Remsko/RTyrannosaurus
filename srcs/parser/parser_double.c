@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   parser_double.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 17:37:44 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/26 17:27:55 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/26 17:27:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include <stddef.h>
 
-#include "rt.h"
-#include "json_parser.h"
+#include "parser.h"
 
-t_scene *parser_file(char *path);
+#include "json_types.h"
 
-t_scene *parser_scene(t_json_object *json);
-
-t_camera *parser_camera(t_json_value *value);
-
-t_vector parser_vector(t_json_value *value);
-
-double parser_double(t_json_value *value);
-
-double value_to_double(void *ptr, t_json_value_type type);
-
-bool value_exist(t_json_value *value);
-
-#endif
+double parser_double(t_json_value *value)
+{
+    if (value == NULL || value->ptr == NULL)
+        return (0.0);
+    return (value_to_double(value->ptr, value->type));
+}

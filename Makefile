@@ -23,6 +23,9 @@ SRC_NAME =	main.c \
 			parser/parser_scene.c \
 			parser/parser_camera.c \
 			parser/parser_vector.c \
+			parser/parser_double.c \
+			parser/value_to_double.c \
+			parser/value_exist.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 

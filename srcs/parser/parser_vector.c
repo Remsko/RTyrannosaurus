@@ -6,26 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 13:54:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 16:45:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 17:43:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+#include "parser.h"
 
 #include "json_parser.h"
 
 #include "libft.h"
 
-double value_to_double(void *ptr, t_json_value_type type)
-{
-    if (type == integer)
-        return ((double)*(int *)ptr);
-    else if (type == number)
-        return (*(double *)ptr);
-    return (0.0);
-}
-
-bool check_vector(t_json_array *a)
+static bool check_vector(t_json_array *a)
 {
     t_json_value *v;
     int index;
@@ -36,7 +28,7 @@ bool check_vector(t_json_array *a)
     while (index < 3)
     {
         v = a->value[index];
-        if (v == NULL || v->ptr == NULL)
+        if (value_exist(v) == false)
             return (false);
         if (v->type != number && v->type != integer)
             return (false);
@@ -45,7 +37,7 @@ bool check_vector(t_json_array *a)
     return (true);
 }
 
-t_vector new_vector(t_json_array *a)
+static t_vector new_vector(t_json_array *a)
 {
     t_vector v;
 
@@ -60,7 +52,7 @@ t_vector parser_vector(t_json_value *value)
     t_vector v;
 
     ft_bzero(&v, sizeof(v));
-    if (value != NULL && value->ptr != NULL && value->type == array)
+    if (value_exist(value) && value->type == array)
     {
         if (check_vector((t_json_array *)value->ptr))
             v = new_vector((t_json_array *)value->ptr);

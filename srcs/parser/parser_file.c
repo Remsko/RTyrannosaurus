@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 16:36:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 17:38:56 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ t_scene *parser_file(char *path)
     if ((fd = open(path, O_RDONLY)) == -1)
         return (NULL);
     file = read_file(fd);
-    if ((json = json_parse(file)) == NULL)
-        return (NULL);
-    if (json->ptr != NULL && json->type == object)
+    json = json_parse(file);
+    if (value_exist(json) && json->type == object)
         scene = parser_scene((t_json_object *)json->ptr);
     else
         scene = NULL;

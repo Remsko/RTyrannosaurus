@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 22:11:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/24 22:18:31 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 17:03:59 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_camera
 {
     t_vector position;
     t_vector direction;
+    double fov;
     double distance_from_viewplane;
 } t_camera;
 
