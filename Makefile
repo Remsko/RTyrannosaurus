@@ -7,11 +7,6 @@ LIBFT = libft/libft.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
-			sdl/sdl_destroy.c \
-			sdl/sdl_init.c \
-			sdl/sdl_loop.c \
-			sdl/sdl_draw.c \
-			sdl/sdl_event.c \
 			color/color_add.c \
 			color/color_divide.c \
 			color/color_multiply.c \
@@ -27,10 +22,19 @@ SRC_NAME =	main.c \
 			parser/parser_file.c \
 			parser/parser_scene.c \
 			parser/parser_camera.c \
+			parser/parser_config.c \
 			parser/parser_vector.c \
 			parser/parser_double.c \
 			parser/value_to_double.c \
 			parser/value_exist.c \
+			parser/nerf_double.c \
+
+#SRC_NAME += 
+#			sdl/sdl_destroy.c \
+			sdl/sdl_init.c \
+			sdl/sdl_loop.c \
+			sdl/sdl_draw.c \
+			sdl/sdl_event.c \
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 
@@ -45,7 +49,7 @@ CPPFLAGS = -I./incs \
 			-I ~/.brew/include/SDL2 \
 
 LDFLAGS = -Llibft \
-			-Llibjson \
+			-L./libjson/ \
 			-L ~/.brew/lib \
 
 LDLIBS = -lft -lSDL2 -lm -ljson

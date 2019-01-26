@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_double.c                                    :+:      :+:    :+:   */
+/*   nerf_double.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/26 17:27:55 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 19:37:59 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/27 00:06:23 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/27 00:11:12 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-#include "parser.h"
-
-#include "json_types.h"
-
-double parser_double(t_json_value *value)
+void    nerf_double(double *d, double min, double max, double wanted)
 {
-    if (value_exist(value) == false)
-        return (0.0);
-    return (value_to_double(value->ptr, value->type));
+    if (*d > max)
+        *d = wanted;
+    if (*d < min)
+        *d = wanted;
 }
