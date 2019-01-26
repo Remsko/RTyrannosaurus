@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/25 17:22:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 16:36:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "parser.h"
 
 #include "json_parser.h"
+#include "json_free.h"
 #include "libft.h"
 
 char    *read_file(int fd)
@@ -52,8 +53,12 @@ t_scene *parser_file(char *path)
     if ((fd = open(path, O_RDONLY)) == -1)
         return (NULL);
     file = read_file(fd);
-    json = json_parse(file);
-    scene = parser_scene(json);
-    (void)json;
+    if ((json = json_parse(file)) == NULL)
+        return (NULL);
+    if (json->ptr != NULL && json->type == object)
+        scene = parser_scene((t_json_object *)json->ptr);
+    else
+        scene = NULL;
+    json_free_value(json);
     return (scene);
 }

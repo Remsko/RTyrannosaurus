@@ -1,0 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser_vector.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/26 13:54:58 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/26 16:45:31 by rpinoit          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "vector.h"
+
+#include "json_parser.h"
+
+#include "libft.h"
+
+double value_to_double(void *ptr, t_json_value_type type)
+{
+    if (type == integer)
+        return ((double)*(int *)ptr);
+    else if (type == number)
+        return (*(double *)ptr);
+    return (0.0);
+}
+
+bool check_vector(t_json_array *a)
+{
+    t_json_value *v;
+    int index;
+
+    if (a->len != 3)
+        return (false);
+    index = 0;
+    while (index < 3)
+    {
+        v = a->value[index];
+        if (v == NULL || v->ptr == NULL)
+            return (false);
+        if (v->type != number && v->type != integer)
+            return (false);
+        ++index;
+    }
+    return (true);
+}
+
+t_vector new_vector(t_json_array *a)
+{
+    t_vector v;
+
+    v.x = value_to_double(a->value[0]->ptr, a->value[0]->type);
+    v.y = value_to_double(a->value[1]->ptr, a->value[1]->type);;
+    v.z = value_to_double(a->value[2]->ptr, a->value[2]->type);;
+    return (v);
+}
+
+t_vector parser_vector(t_json_value *value)
+{
+    t_vector v;
+
+    ft_bzero(&v, sizeof(v));
+    if (value != NULL && value->ptr != NULL && value->type == array)
+    {
+        if (check_vector((t_json_array *)value->ptr))
+            v = new_vector((t_json_array *)value->ptr);
+    }
+    return (v);
+}

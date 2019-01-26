@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   parser_scene.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 16:34:25 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/26 13:11:17 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/26 15:52:31 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_H
-# define RT_H
+#include <stdlib.h>
 
+#include "rt.h"
+#include "parser.h"
 #include "camera.h"
-#include "light.h"
-#include "object.h"
 
-#define WIN_W 1000
-#define WIN_H 1000
+#include "json_types.h"
+#include "json_getter.h"
 
-/*
-** Environment structure: Raytracer configurations
-*/
-
-typedef struct s_scene
-{
-    t_camera *camera;
-    t_object *objects;
-    //size_t o_length;
-    t_light *lights;
-    //size_t l_length;
-} t_scene;
-
-typedef struct s_env
+t_scene *parser_scene(t_json_object *json)
 {
     t_scene *scene;
-} t_env;
 
-#endif
+    if ((scene = (t_scene *)malloc(sizeof(t_scene))) == NULL)
+        return (NULL);
+    scene->camera = parser_camera(getter_by_key(json, "camera"));
+    return (scene);
+}
