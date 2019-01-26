@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 13:11:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 19:33:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 00:30:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 #include "json_types.h"
 #include "json_getter.h"
 
+/*
+** TODO
+** handle parsing error (null value returned)
+*/
+
 t_scene *parser_scene(t_json_object *json)
 {
     t_scene *scene;
@@ -27,5 +32,7 @@ t_scene *parser_scene(t_json_object *json)
         return (NULL);
     scene->config = parser_config(getter_by_key(json, "config"));
     scene->camera = parser_camera(getter_by_key(json, "camera"));
+    scene->objects = parser_objects(getter_by_key(json, "objects"));
+    scene->lights = parser_lights(getter_by_key(json, "lights"));
     return (scene);
 }

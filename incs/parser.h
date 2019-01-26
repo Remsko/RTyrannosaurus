@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 00:16:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 00:35:35 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ t_scene *parser_scene(t_json_object *json);
 t_camera *parser_camera(t_json_value *value);
 
 t_config *parser_config(t_json_value *value);
+
+t_light *parser_lights(t_json_value *value);
+
+t_object *parser_objects(t_json_value *value);
 
 t_vector parser_vector(t_json_value *value);
 

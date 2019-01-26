@@ -28,6 +28,8 @@ SRC_NAME =	main.c \
 			parser/value_to_double.c \
 			parser/value_exist.c \
 			parser/nerf_double.c \
+			parser/parser_lights.c \
+			parser/parser_objects.c \
 
 #SRC_NAME += 
 #			sdl/sdl_destroy.c \
