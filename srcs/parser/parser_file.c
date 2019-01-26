@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 17:38:56 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 18:05:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_scene *parser_file(char *path)
     char *file;
     int fd;
 
+    scene = NULL;
     if ((fd = open(path, O_RDONLY)) == -1)
         return (NULL);
     file = read_file(fd);
@@ -58,6 +59,8 @@ t_scene *parser_file(char *path)
         scene = parser_scene((t_json_object *)json->ptr);
     else
         scene = NULL;
+    free(file);
     json_free_value(json);
+    close(fd);
     return (scene);
 }

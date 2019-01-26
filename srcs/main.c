@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 16:33:58 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/26 18:03:17 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ void usage(char *bin)
 	ft_putstr("usage: ");
 	ft_putstr(bin);
 	ft_putstr("<scene file>\n");
+}
+
+void scene_in_the_poubelle(t_scene *scene)
+{
+	if (scene != NULL)
+	{
+		if (scene->camera != NULL)
+			free(scene->camera);
+		free(scene);
+	}
 }
 
 int	main(int ac, char **av)
@@ -37,6 +47,7 @@ int	main(int ac, char **av)
 		//sdl_init(&v);
 		//sdl_loop(&e, &v);
 		//sdl_destroy(&v);
+		scene_in_the_poubelle(e.scene);
 	}
 	else
 		usage(av[0]);
