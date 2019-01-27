@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 02:49:12 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 13:07:24 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 
 typedef enum	e_object_type
 {
-	sphere = 0,
-	plane = 1,
-	cylinder = 2,
-	cone = 3,
-    object_max,
+	SPHERE = 0,
+	PLANE = 1,
+	CYLINDER = 2,
+	CONE = 3,
+    OBJECT_MAX,
 }				t_object_type;
 
 /*
