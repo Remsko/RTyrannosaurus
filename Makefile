@@ -30,6 +30,13 @@ SRC_NAME =	main.c \
 			parser/nerf_double.c \
 			parser/parser_lights.c \
 			parser/parser_objects.c \
+			object/cone.c \
+			object/cylinder.c \
+			object/get_inter.c \
+			object/get_normal.c \
+			object/plan.c \
+			object/solver_quadratic.c \
+			object/sphere.c \
 
 #SRC_NAME += 
 #			sdl/sdl_destroy.c \
@@ -67,6 +74,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)color
 	mkdir -p $(OBJ_PATH)sdl
 	mkdir -p $(OBJ_PATH)parser
+	mkdir -p $(OBJ_PATH)object
 
 $(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)
