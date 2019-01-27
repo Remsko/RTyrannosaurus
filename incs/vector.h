@@ -6,23 +6,23 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 01:25:17 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 02:27:40 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
-#define VECTOR_H
+# define VECTOR_H
 
 /*
 ** 3D Vector structure
 */
 
-typedef struct s_vector
+typedef struct	s_vector
 {
     double x;
     double y;
     double z;
-} t_vector;
+}				t_vector;
 
 /*
 ** Vector add variations
@@ -80,7 +80,8 @@ double vector_magnitude(t_vector const vector);
 ** Vector normalization to reduce vector len to 1
 */
 
-void vector_normalize(t_vector *vector);
+void		vector_normalize(t_vector *vector);
+t_vector	vector_norm(t_vector const vector);
 
 /*
 ** Vector matrix rotation
