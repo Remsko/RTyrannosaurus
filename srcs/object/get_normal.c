@@ -6,18 +6,18 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 02:04:11 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 02:26:20 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 02:49:01 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 #include "object.h"
 
-int		get_normal(t_object const *obj, t_vector const ray_dir,
+t_vector	get_normal(t_object const *obj, t_vector const ray_dir,
 		t_vector const hit_pos)
 {
-	static int	(*normal[object_max])(void const *obj, t_vector const ray_dir,
-			t_vector const hit_pos) = {
+	static t_vector	(*normal[object_max])(void const *obj,
+			t_vector const ray_dir, t_vector const hit_pos) = {
 		[sphere] = &normal_sphere,
 		[plane] = &normal_plane,
 		[cylinder] = &normal_cylinder,

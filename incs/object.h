@@ -6,13 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 02:40:43 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 02:49:12 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
 
+# include "ray.h"
 # include "vector.h"
 
 /*
@@ -93,6 +94,6 @@ t_vector	normal_plane(void const *obj, t_vector const ray_dir,
 		t_vector const hit_pos);
 t_vector	normal_sphere(void const *obj, t_vector const ray_dir,
 		t_vector const hit_pos);
-int				get_normal(t_object const *obj, t_vector const ray_dir,
-		t_vector const hit_pos)
+t_vector	get_normal(t_object const *obj, t_vector const ray_dir,
+		t_vector const hit_pos);
 #endif
