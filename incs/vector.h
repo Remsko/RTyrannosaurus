@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 02:27:40 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 15:17:48 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ t_vector	vector_rotate_x(t_vector const a, const double rad);
 t_vector	vector_rotate_y(t_vector const a, const double rad);
 t_vector	vector_rotate_z(t_vector const a, const double rad);
 t_vector	vector_rotate3(t_vector const a, t_vector const rad);
+t_vector	vector_unrotate3(t_vector const a, t_vector const rad);
 
 #endif

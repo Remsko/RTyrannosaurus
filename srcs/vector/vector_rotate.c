@@ -6,7 +6,7 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 01:05:16 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 01:17:48 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 15:18:52 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,21 @@ t_vector	vector_rotate3(t_vector const a, t_vector const deg)
 	t_vector	r;
 	t_vector	rad;
 
-	rad = vector_multiply_const_ret(deg, M_PI / 180.);
+	rad = vector_multiply_const_ret(deg, M_PI / 180.0);
 	r = vector_rotate_x(a, rad.x);
 	r = vector_rotate_x(r, rad.y);
 	r = vector_rotate_x(r, rad.z);
+	return (r);
+}
+
+t_vector	vector_unrotate3(t_vector const a, t_vector const deg)
+{
+	t_vector	r;
+	t_vector	rad;
+
+	rad = vector_multiply_const_ret(deg, M_PI / 180.0);
+	r = vector_rotate_x(a, -rad.x);
+	r = vector_rotate_x(r, -rad.y);
+	r = vector_rotate_x(r, -rad.z);
 	return (r);
 }

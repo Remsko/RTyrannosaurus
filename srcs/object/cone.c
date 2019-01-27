@@ -6,10 +6,11 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:50:53 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 13:24:21 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 15:20:19 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "ray.h"
 #include "object.h"
 
@@ -18,15 +19,14 @@ t_vector	normal_cone(void const *obj, t_vector const ray_dir,
 {
 	t_cone		*c;
 	t_vector	normal;
-	t_vector	tmp;
+	t_vector	rot;
 
 	(void)ray_dir;
 	c = (t_cone *)obj;
-	normal = vector_rotate3(vector_sub_ret(hit_pos, c->center), c->rot);
-	tmp.x = 360.0 - c->rot.x;
-	tmp.y = 360.0 - c->rot.y;
-	tmp.z = 360.0 - c->rot.z;
-	normal = vector_norm(vector_rotate3(normal, tmp));
+	rot = c->rot;
+	normal = vector_rotate3(vector_sub_ret(hit_pos, c->center), rot);
+	normal.y = -normal.y * tan(c->radius * c->radius);
+	normal = vector_norm(vector_unrotate3(normal, rot));
 	return (normal);
 }
 
