@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 17:31:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 19:29:42 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ t_camera *parser_camera(t_json_value *value);
 t_config *parser_config(t_json_value *value);
 
 t_light *parser_lights(t_json_value *value);
+
+t_light_type parser_light_type(t_json_value *value);
+
+void *parser_light_spec(t_json_value *value, t_light_type type);
+
+void *parser_point(t_json_object *o);
+
+void *parser_parallel(t_json_object *o);
+
+void *parser_directional(t_json_object *o);
 
 t_object *parser_objects(t_json_value *value);
 

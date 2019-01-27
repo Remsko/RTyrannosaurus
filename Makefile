@@ -33,6 +33,11 @@ SRC_NAME =	main.c \
 			parser/nerf_rotation.c \
 			parser/nerf_color.c \
 			parser/parser_lights.c \
+			parser/parser_light_type.c \
+			parser/parser_light_spec.c \
+			parser/parser_point.c \
+			parser/parser_directional.c \
+			parser/parser_parallel.c \
 			parser/parser_objects.c \
 			parser/parser_object_type.c \
 			parser/parser_object_spec.c \
