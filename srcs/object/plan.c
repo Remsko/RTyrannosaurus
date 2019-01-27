@@ -6,7 +6,7 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:50:50 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 02:41:08 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 13:24:02 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_vector	normal_plane(void const *obj, t_vector const ray_dir,
 	plan = (t_plane *)obj;
 	normal = vector_rotate3(plan->normal, plan->rot);
 	if (vector_dot_product(ray_dir, normal) > 0.0)
-		normal = vector_multiply_const_ret(normal, -1.);
+		normal = vector_multiply_const_ret(normal, -1.0);
 	return (normal);
 }
 
@@ -42,11 +42,11 @@ int			intersection_plane(t_ray const ray, void const *obj, double *t)
 	plan = (t_plane *)obj;
 	div = vector_dot_product(vector_rotate3(plan->normal, plan->rot),
 			ray.direction);
-	if (div == 0.)
+	if (div == 0.0)
 		return (0);
 	*t = vector_dot_product(vector_rotate3(plan->normal, plan->rot),
 			vector_sub_ret(plan->center, ray.origin));
-	if (*t <= 0.)
+	if (*t <= 0.0)
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:50:53 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 02:40:57 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 13:24:21 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_vector	normal_cone(void const *obj, t_vector const ray_dir,
 	(void)ray_dir;
 	c = (t_cone *)obj;
 	normal = vector_rotate3(vector_sub_ret(hit_pos, c->center), c->rot);
-	tmp.x = 360. - c->rot.x;
-	tmp.y = 360. - c->rot.y;
-	tmp.z = 360. - c->rot.z;
+	tmp.x = 360.0 - c->rot.x;
+	tmp.y = 360.0 - c->rot.y;
+	tmp.z = 360.0 - c->rot.z;
 	normal = vector_norm(vector_rotate3(normal, tmp));
 	return (normal);
 }
