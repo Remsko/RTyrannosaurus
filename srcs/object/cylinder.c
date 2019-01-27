@@ -6,7 +6,7 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:50:52 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 13:24:10 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 13:28:57 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_vector	normal_cylinder(void const *obj, t_vector const ray_dir,
 	(void)ray_dir;
 	cyl = (t_cylinder *)obj;
 	normal = vector_rotate3(vector_sub_ret(hit_pos, cyl->center), cyl->rot);
-	tmp.x = 360. - cyl->rot.x;
+	tmp.x = 360.0 - cyl->rot.x;
 	tmp.y = 0.0;
-	tmp.z = 360. - cyl->rot.z;
+	tmp.z = 360.0 - cyl->rot.z;
 	normal = vector_norm(vector_rotate3(normal, tmp));
 	return (normal);
 }
