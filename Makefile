@@ -4,6 +4,7 @@ RM = rm -rf
 CFLAGS = -Wall -Werror -Wextra
 CPPFLAGS = -I./incs
 LIBFT = libft/libft.a
+LIBJSON = libjson/libjson.a
 
 SRC_PATH = srcs/
 SRC_NAME =	main.c \
@@ -19,6 +20,7 @@ SRC_NAME =	main.c \
 			vector/vector_dot_product.c \
 			vector/vector_magnitude.c \
 			vector/vector_normalize.c \
+			vector/vector_rotate.c \
 			parser/parser_file.c \
 			parser/parser_scene.c \
 			parser/parser_camera.c \
@@ -68,6 +70,9 @@ all: $(NAME)
 $(LIBFT):
 	make -C libft
 
+$(LIBJSON):
+	make -C libjson
+
 $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)
 	mkdir -p $(OBJ_PATH)vector
@@ -76,7 +81,7 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)parser
 	mkdir -p $(OBJ_PATH)object
 
-$(NAME): $(LIBLST) $(LIBFT) $(OBJ_PATH) $(OBJ)
+$(NAME): $(LIBFT) $(LIBJSON) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -84,11 +89,13 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 clean:
 	make clean -C libft
+	make clean -C libjson
 	$(RM) $(OBJ)
 	$(RM) $(OBJ_PATH)
 
 fclean: clean
 	$(RM) $(LIBFT)
+	$(RM) $(LIBJSON)
 	$(RM) $(NAME)
 
 re: fclean all
