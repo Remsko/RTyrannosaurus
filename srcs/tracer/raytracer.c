@@ -6,13 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 21:46:10 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 22:02:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include "visu.h"
 #include "color.h"
+#include "vector.h"
 
 static void pixel_put(t_visu *v, t_color *c, int x, int y)
 {
@@ -29,23 +30,6 @@ static double viewplane_y(int height, row, y, samples)
 {
     return (height / 2 - y + (row + 0.5) / samples);
 }
-
-/*
-    public Ray createRay(Point2D point)
-	{
-		Ray ray = new Ray();
-		
-		ray.origin = Main.camera.position;
-		
-		ray.direction.x = point.x;
-		ray.direction.y = point.y;
-		ray.direction.z = Main.camera.distance;
-		
-		Main.rotation.rotate(ray.direction, Main.camera.rotation);
-		ray.direction.normalize();
-		return (ray);
-    }
-*/
 
 static t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
 {
@@ -85,7 +69,7 @@ static void pixel_color(t_scene *scene, t_color *color, int x, int y)
         }
         ++row;
     }
-    color_divide_const(color, (double)(samples * samples));
+    color_divide_const(color, (const double)(samples * samples));
     return (color);
 }
 
