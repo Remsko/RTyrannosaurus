@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   value_to_double.c                                  :+:      :+:    :+:   */
+/*   nerf_color.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/26 17:27:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 17:40:39 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/27 17:28:21 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/27 17:34:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "json_types.h"
+#include "color.h"
+#include "parser.h"
 
-double value_to_double(void *ptr, t_json_value_type type)
+void nerf_color(t_color *color)
 {
-    if (ptr != NULL)
-    {
-        if (type == integer)
-            return ((double)*(int *)ptr);
-        else if (type == number)
-            return ((double)*(double *)ptr);
-    }
-    return (0.0);
+    nerf_double(&color->r, 0.0, 255.0);
+    nerf_double(&color->g, 0.0, 255.0);
+    nerf_double(&color->b, 0.0, 255.0);
 }

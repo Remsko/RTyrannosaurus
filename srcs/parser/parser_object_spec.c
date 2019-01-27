@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   value_to_double.c                                  :+:      :+:    :+:   */
+/*   parser_object_spec.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/26 17:27:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 17:40:39 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/27 16:27:37 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/27 16:41:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+
 #include "json_types.h"
 
-double value_to_double(void *ptr, t_json_value_type type)
+#include "parser.h"
+#include "object.h"
+
+void    *parser_object_spec(t_json_value *value, t_object_type type)
 {
-    if (ptr != NULL)
+    static void *(*spec[OBJECT_MAX])(t_json_object *) =
     {
-        if (type == integer)
-            return ((double)*(int *)ptr);
-        else if (type == number)
-            return ((double)*(double *)ptr);
-    }
-    return (0.0);
+        [SPHERE] = &parser_sphere,
+        [PLANE] = &parser_plane,
+        [CYLINDER] = &parser_cylinder,
+        [CONE] = &parser_cone,
+    };
+    t_json_object *o;
+
+    if (value->type != object)
+        return (NULL);
+    o = (t_json_object *)value->ptr;
+    return (spec[type](o));
 }

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 19:31:10 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 00:22:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 17:44:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ t_viewplane parser_viewplane(t_json_value *value)
             v.height = parser_double(a->value[1]);
         }
     }
-    nerf_double(&v.width, 1.0, 3000.0, 1550.0);
-    nerf_double(&v.height, 1.0, 3000.0, 1550.0);
     return (v);
 }
 
@@ -53,8 +51,10 @@ t_config *parser_config(t_json_value *value)
         return (NULL);
     o = (t_json_object *)value->ptr;
     config->viewplane = parser_viewplane(getter_by_key(o, "viewplane"));
+    nerf_double(&config->viewplane.width, 1.0, 3000.0);
+    nerf_double(&config->viewplane.height, 1.0, 3000.0);
     config->ambient = parser_double(getter_by_key(o, "ambient"));
-    nerf_double(&config->ambient, 0.0, 1.0, 0.35);
+    nerf_double(&config->ambient, 0.0, 1.0);
     /*
     printf("vp = %f %f\n", config->viewplane.width, config->viewplane.height);
     printf("ambient = %f\n", config->ambient);

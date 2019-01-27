@@ -28,9 +28,17 @@ SRC_NAME =	main.c \
 			parser/value_to_double.c \
 			parser/value_exist.c \
 			parser/nerf_double.c \
+			parser/nerf_rotation.c \
+			parser/nerf_color.c \
 			parser/parser_lights.c \
 			parser/parser_objects.c \
-			object/cone.c \
+			parser/parser_object_type.c \
+			parser/parser_object_spec.c \
+			parser/parser_sphere.c \
+			parser/parser_plane.c \
+			parser/parser_cylinder.c \
+			parser/parser_cone.c \
+			#object/cone.c \
 			object/cylinder.c \
 			object/get_inter.c \
 			object/get_normal.c \

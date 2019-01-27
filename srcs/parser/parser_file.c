@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 18:05:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 17:41:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ t_scene *parser_file(char *path)
         scene = parser_scene((t_json_object *)json->ptr);
     else
         scene = NULL;
-    free(file);
     json_free_value(json);
+    free(file);
     close(fd);
     return (scene);
 }
