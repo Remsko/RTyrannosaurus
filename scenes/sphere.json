@@ -2,12 +2,13 @@
 	"config":
 	{
 		"viewplane": [1000, 1000],
-		"ambient": 0.3
+		"ambient": 0.3,
+		"anti-aliasing": 1
 	},
 	"camera":
 	{
-		"position": [0, 200, 0],
-		"direction": [0, 0, 0],
+		"position": [0, 0, 200],
+		"rotation": [0, 180, 0],
 		"fov": 80
 	},
 	"objects":

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:33:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 17:32:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 21:41:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_camera *parser_camera(t_json_value *value)
         return (NULL);
     o = (t_json_object *)value->ptr;
     camera->position = parser_vector(getter_by_key(o, "position"));
-    camera->direction = parser_vector(getter_by_key(o, "direction"));
+    camera->rotation = parser_vector(getter_by_key(o, "rotation"));
     camera->fov = parser_double(getter_by_key(o, "fov"));
     nerf_double(&camera->fov, 1.0, 90.0);
     /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 01:05:16 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 15:18:52 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/27 21:39:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ t_vector	vector_rotate3(t_vector const a, t_vector const deg)
 
 	rad = vector_multiply_const_ret(deg, M_PI / 180.0);
 	r = vector_rotate_x(a, rad.x);
-	r = vector_rotate_x(r, rad.y);
-	r = vector_rotate_x(r, rad.z);
+	r = vector_rotate_y(r, rad.y);
+	r = vector_rotate_z(r, rad.z);
 	return (r);
 }
 
@@ -74,7 +74,7 @@ t_vector	vector_unrotate3(t_vector const a, t_vector const deg)
 
 	rad = vector_multiply_const_ret(deg, M_PI / 180.0);
 	r = vector_rotate_x(a, -rad.x);
-	r = vector_rotate_x(r, -rad.y);
-	r = vector_rotate_x(r, -rad.z);
+	r = vector_rotate_y(r, -rad.y);
+	r = vector_rotate_z(r, -rad.z);
 	return (r);
 }

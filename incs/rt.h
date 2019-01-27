@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 18:12:51 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/27 21:07:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_config
 {
     t_viewplane viewplane;
     double ambient;
+    int anti_aliasing;
 } t_config;
 
 typedef struct s_scene
