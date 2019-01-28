@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_inter.c                                        :+:      :+:    :+:   */
+/*   intersection_spec.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/27 02:04:05 by kehuang           #+#    #+#             */
-/*   Updated: 2019/01/27 13:08:26 by kehuang          ###   ########.fr       */
+/*   Created: 2019/01/28 20:27:39 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/28 21:31:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 #include "object.h"
+#include "intersection.h"
 
-int		get_inter(t_ray const ray, t_object const *obj, double *t)
+int		intersection_spec(t_ray const ray, t_object const *obj, double *t)
 {
-	static int	(*inter[OBJECT_MAX])(t_ray const ray, void const *obj,
+	static int	(*intersection[OBJECT_MAX])(t_ray const ray, void const *object,
 			double *t) = {
 		[SPHERE] = &intersection_sphere,
 		[PLANE] = &intersection_plane,
@@ -23,5 +24,5 @@ int		get_inter(t_ray const ray, t_object const *obj, double *t)
 		[CONE] = &intersection_cone
 	};
 
-	return (inter[obj->type](ray, obj->spec, t));
+	return (intersection[obj->type](ray, obj->spec, t));
 }

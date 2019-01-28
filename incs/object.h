@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 13:07:24 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/28 22:53:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,7 @@ typedef struct	s_plane
     t_vector    normal;
     t_vector    rot;
 }				t_plane;
-
-int				solver_quadratic(const double a, const double b, const double c,
-		double *t);
-
-int				intersection_cone(t_ray const ray, void const *obj,
-		double *t);
-int				intersection_cylinder(t_ray const ray, void const *obj,
-		double *t);
-int				intersection_plane(t_ray const ray, void const *obj,
-		double *t);
-int				intersection_sphere(t_ray const ray, void const *obj,
-		double *t);
-int				get_inter(t_ray const ray, t_object const *obj, double *t);
-
+/*
 t_vector	normal_cone(void const *obj, t_vector const ray_dir,
 		t_vector const hit_pos);
 t_vector	normal_cylinder(void const *obj, t_vector const ray_dir,
@@ -96,4 +83,5 @@ t_vector	normal_sphere(void const *obj, t_vector const ray_dir,
 		t_vector const hit_pos);
 t_vector	get_normal(t_object const *obj, t_vector const ray_dir,
 		t_vector const hit_pos);
+*/
 #endif

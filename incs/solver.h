@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   throw_ray.c                                        :+:      :+:    :+:   */
+/*   solver.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 21:12:59 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/28 21:31:54 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/28 22:53:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
-#include "color.h"
-#include "ray.h"
-#include "intersection.h"
+#ifndef SOLVER_H
+# define SOLVER_H
 
-#include "libft.h"
+#define EPSILON 10E-9
 
-t_color throw_ray(t_scene *scene, t_ray ray)
+typedef struct s_quadra
 {
-    t_color color;
+    double a;
+    double b;
+    double c;
+} t_quadra;
 
-    if (hit(scene->objects, 1, ray))
-        color = (t_color){255.0, 0.0, 0.0};
-    else
-        ft_bzero((void *)&color, sizeof(t_color));
-    return (color);
-}
+int solver_quadratic(t_quadra quadra, double *t);
+
+#endif
