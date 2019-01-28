@@ -72,11 +72,12 @@ OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 CPPFLAGS = -I./incs \
 			-I./libft \
 			-I./libjson/incs \
-			-I ~/.brew/include/SDL2 \
+			`sdl2-config --cflags --libs` \
+			#-I ~/.brew/include/SDL2 \
 
 LDFLAGS = -Llibft \
 			-L./libjson/ \
-			-L ~/.brew/lib \
+			#-L ~/.brew/lib \
 
 LDLIBS = -lft -lSDL2 -lm -ljson
 
