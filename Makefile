@@ -73,11 +73,9 @@ CPPFLAGS = -I./incs \
 			-I./libft \
 			-I./libjson/incs \
 			`sdl2-config --cflags --libs` \
-			#-I ~/.brew/include/SDL2 \
 
 LDFLAGS = -Llibft \
 			-L./libjson/ \
-			#-L ~/.brew/lib \
 
 LDLIBS = -lft -lSDL2 -lm -ljson
 
