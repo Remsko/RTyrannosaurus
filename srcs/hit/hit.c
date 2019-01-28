@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:53:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 12:35:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/28 13:23:22 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 #include "object.h"
 #include "ray.h"
 
+#include <stdio.h>
 bool    hit(t_object *objects, int objects_length, t_ray ray)
 {
-    static int (*intersection[OBJECT_MAX])(t_ray const ray, t_object const *obj, double *t) =
+    static int (*intersection[OBJECT_MAX])(t_ray const ray, void const *obj, double *t) =
     {
 		[SPHERE] = &intersection_sphere,
 		[PLANE] = &intersection_plane,
@@ -34,11 +35,13 @@ bool    hit(t_object *objects, int objects_length, t_ray ray)
     while (index < objects_length)
     {
         tested = &objects[index];
+        //printf("%f\n", ((t_sphere *)tested->spec)->center.x);
         if (intersection[tested->type](ray, tested->spec, &tmp))
-        {
+            return (true);
+        /*{
             if (tmp != 0.0 && tmp < t)
 			    t = tmp;
-        }
+        }*/
         ++index;
     }
     if (t != 0x7fffffff)

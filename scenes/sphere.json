@@ -8,8 +8,8 @@
 	"camera":
 	{
 		"position": [0, 0, 200],
-		"rotation": [0, 180, 0],
-		"fov": 80
+		"rotation": [0, 0, 0],
+		"fov": 60
 	},
 	"objects":
 	[

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 21:07:01 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/28 12:50:18 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "camera.h"
 #include "light.h"
 #include "object.h"
+//#include "visu.h"
 
 #define WIN_W 1000
 #define WIN_H 1000

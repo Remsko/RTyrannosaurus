@@ -6,13 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 12:35:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/28 13:00:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 #include "color.h"
 #include "ray.h"
+
+#include "libft.h"
+
+#include <stdbool.h>
+bool    hit(t_object *objects, int objects_length, t_ray ray);
 
 t_color throw_ray(t_scene *scene, t_ray ray)
 {

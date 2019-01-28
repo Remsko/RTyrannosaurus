@@ -45,16 +45,18 @@ SRC_NAME =	main.c \
 			parser/parser_plane.c \
 			parser/parser_cylinder.c \
 			parser/parser_cone.c \
-			#object/cone.c \
+			object/cone.c \
 			object/cylinder.c \
 			object/get_inter.c \
 			object/get_normal.c \
 			object/plan.c \
 			object/solver_quadratic.c \
 			object/sphere.c \
+			tracer/raytracer.c \
+			tracer/throw_ray.c \
+			hit/hit.c \
 
-#SRC_NAME += 
-#			sdl/sdl_destroy.c \
+SRC_NAME += sdl/sdl_destroy.c \
 			sdl/sdl_init.c \
 			sdl/sdl_loop.c \
 			sdl/sdl_draw.c \
@@ -93,6 +95,8 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)sdl
 	mkdir -p $(OBJ_PATH)parser
 	mkdir -p $(OBJ_PATH)object
+	mkdir -p $(OBJ_PATH)tracer
+	mkdir -p $(OBJ_PATH)hit
 
 $(NAME): $(LIBFT) $(LIBJSON) $(OBJ_PATH) $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)

@@ -1,8 +1,8 @@
 #ifndef VISU_H
-#define VISU_H
+# define VISU_H
 
-#include "SDL.h"
-#include "rt.h"
+# include "SDL.h"
+# include "rt.h"
 
 /*
 ** Graphic window structures to use SDL functions
@@ -55,7 +55,7 @@ void sdl_destroy(t_visu *v);
 ** in sdl_loop.c
 */
 
-void sdl_loop(t_scene *scene, t_visu *v);
+void sdl_loop(t_scene *s, t_visu *v);
 
 /*
 ** Draw in SDL_Renderer for rendering

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 09:49:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/28 13:16:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,27 @@
 #include "color.h"
 #include "vector.h"
 
-static void pixel_put(t_visu *v, t_color *c, int x, int y)
+#include "libft.h"
+
+t_color throw_ray(t_scene *scene, t_ray ray);
+
+void pixel_put(t_visu *v, t_color c, int x, int y)
 {
-    SDL_SetRenderDrawColor(v->renderer, color->r, color->g, color->b, 255);
+    SDL_SetRenderDrawColor(v->renderer, c.r, c.g, c.b, 255);
     SDL_RenderDrawPoint(v->renderer, x, y);
 }
 
-static double viewplane_x(int width, int column, int x, int samples)
+double viewplane_x(int width, int column, int x, int samples)
 {
     return (x - width / 2.0 + (column + 0.5) / samples);
 }
 
-static double viewplane_y(int height, row, y, samples)
+double viewplane_y(int height, int row, int y, int samples)
 {
     return (height / 2 - y + (row + 0.5) / samples);
 }
 
-static t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
+t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
 {
     t_ray ray;
 
@@ -39,12 +43,12 @@ static t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
     ray.direction.x = viewplane_x;
     ray.direction.y = viewplane_y;
     ray.direction.z = camera->distance_from_viewplane;
-    //ray.direction = vector_rotate3(ray.direction, camera->rotation);
+    ray.direction = vector_rotate3(ray.direction, camera->rotation);
     vector_normalize(&ray.direction);
     return (ray);
 }
 
-static void pixel_color(t_scene *scene, t_color *color, int x, int y)
+void pixel_color(t_scene *scene, t_color *color, int x, int y)
 {
     t_ray ray;
     int samples;
@@ -61,16 +65,16 @@ static void pixel_color(t_scene *scene, t_color *color, int x, int y)
         {
             ray = new_ray(
                 scene->camera,
-                viewplane_x(scene->config->viewplane.width, column, x, samples);
-                viewplane_y(scene->config->viewplane.height, row, y, samples);
+                viewplane_x(scene->config->viewplane.width, column, x, samples),
+                viewplane_y(scene->config->viewplane.height, row, y, samples)
             );
-            color_add(color, throw_ray(scene, &ray));
+            t_color to_delete = throw_ray(scene, ray);
+            color_add(color, &to_delete);
             ++column;
         }
         ++row;
     }
     color_divide_const(color, (const double)(samples * samples));
-    return (color);
 }
 
 void    raytracer(t_scene *scene, t_visu *visu)
@@ -81,16 +85,19 @@ void    raytracer(t_scene *scene, t_visu *visu)
     int x;
     int y;
 
-    width = v->screen.width;
-    height = v->screen.height;
+    (void)scene;
+    (void)color;
+    color = (t_color){155, 155, 155};
+    width = visu->screen.width;
+    height = visu->screen.height;
     y = 0;
     while (y < height)
     {
         x = 0;
         while (x < width)
         {
-            pixel_color(scene, &color);
-            pixel_put(visu, &color, x, y);
+            pixel_color(scene, &color, x, y);
+            pixel_put(visu, color, x, y);
             ++x;
         }
         ++y;
