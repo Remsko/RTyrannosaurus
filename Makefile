@@ -6,11 +6,12 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/01/29 21:48:44 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/01/29 22:06:08 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rt
+RM = rm -rf
 
 #==============================================================================#
 #------------------------------------------------------------------------------#
@@ -63,13 +64,13 @@ SRC_NAME += intersection_plane.c
 SRC_NAME += intersection_spec.c
 SRC_NAME += intersection_sphere.c
 
-SRC_SUB += object
-SRC_NAME += cone.c
-SRC_NAME += cylinder.c
-SRC_NAME += get_normal.c
-SRC_NAME += plan.c
-SRC_NAME += solver_quadratic.c
-SRC_NAME += sphere.c
+#SRC_SUB += object
+#SRC_NAME += cone.c
+#SRC_NAME += cylinder.c
+#SRC_NAME += get_normal.c
+#SRC_NAME += plan.c
+#SRC_NAME += solver_quadratic.c
+#SRC_NAME += sphere.c
 
 SRC_SUB += parser
 SRC_NAME += parser_camera.c
@@ -143,7 +144,7 @@ OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
-CPPFLAGS += -I$(LIBFT_PATH)/incs
+CPPFLAGS += -I$(LIBFT_PATH)#/incs
 LDFLAGS += -L$(LIBFT_PATH) -lft
 
 
@@ -155,40 +156,51 @@ LDFLAGS += -L$(LIBJSON_PATH) -ljson
 CPPFLAGS += `sdl2-config --cflags --libs`
 LDFLAGS += -lSDL2
 
-LFLAGS += -lm
+LDFLAGS += -lm
 
 #==============================================================================#
 #------------------------------------------------------------------------------#
 #                                 RULES                                        #
 
+NB = $(words $(SRC_NAME))
+INDEX = 0
+
 all: $(NAME)
 
 
-$(NAME): $(OBJ) | $(LIBFT) | $(LIBJSON)
-	$(CC) -o $@ $^ $(LDFLAGS)
+$(NAME): $(OBJ) $(LIBFT) $(LIBJSON)
+	@$(CC) -o $@ $^ $(LDFLAGS)
+	@printf '\033[33m[ READY ] %s\n\033[0m' "Compilation of $(NAME) is done ---"
 
 $(OBJ): $(INC) | $(OBJ_PATH)
 $(OBJ): $(OBJ_PATH)/%.o: %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@$(eval DONE=$(shell echo $$(($(INDEX)*20/$(NB)))))
+	@$(eval PERCENT=$(shell echo $$(($(INDEX)*100/$(NB)))))
+	@$(eval TO_DO=$(shell echo "$@"))
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@printf "[ %d%% ] %s :: %s        \r" $(PERCENT) $(NAME) $@
+	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 $(OBJ_PATH):
-	mkdir -p $@
+	@mkdir -p $@
 
 $(LIBFT):
-	make -C $(LIBFT_PATH)
+	@$(MAKE) -C $(LIBFT_PATH)
 
 $(LIBJSON):
-	make -C $(LIBJSON_PATH)
+	@$(MAKE) -C $(LIBJSON_PATH)
 
 clean:
-	$(RM) $(OBJ_PATH)
-	make -C $(LIBFT_PATH) clean
-	make -C $(LIBJSON_PATH) clean
+	@$(RM) $(OBJ_PATH)
+	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(LIBJSON_PATH) clean
+	@printf '\033[33m[ KILL ] %s\n\033[0m' "Clean of $(NAME) is done ---"
 
 fclean: clean
-	$(RM) $(NAME)
-	$(RM) $(LIBFT)
-	$(RM) $(LIBJSON)
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFT)
+	@$(RM) $(LIBJSON)
+	@printf '\033[33m[ KILL ] %s\n\033[0m' "Fclean of $(NAME) is done ---"
 
 re: fclean all
 

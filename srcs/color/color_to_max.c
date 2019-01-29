@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:05:57 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/14 13:19:52 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 21:55:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "color.h"
-#include "math.h"
 
 /*
 ** Set rgb colors at a maximum value
