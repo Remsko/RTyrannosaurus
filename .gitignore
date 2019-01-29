@@ -1,5 +1,5 @@
 *.o
-obj/
+./.obj/*
 *.swp
 *.DS_Store
 *.dSYM

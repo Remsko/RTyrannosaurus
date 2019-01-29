@@ -1,120 +1,207 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
+#    Updated: 2019/01/29 22:06:08 by rpinoit          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = rt
-CC = gcc
 RM = rm -rf
+
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                                  HEADERS                                     #
+
+INC_PATH += ./incs
+
+INC_NAME += camera.h
+INC_NAME += color.h
+INC_NAME += intersection.h
+INC_NAME += light.h
+INC_NAME += object.h
+INC_NAME += parser.h
+INC_NAME += ray.h
+INC_NAME += rt.h
+INC_NAME += solver.h
+INC_NAME += utils.h
+INC_NAME += vector.h
+INC_NAME += visu.h
+
+INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
+
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                            COMPILER & FLAGS                                  #
+
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-CPPFLAGS = -I./incs
-LIBFT = libft/libft.a
-LIBJSON = libjson/libjson.a
+CPPFLAGS = $(addprefix -I, $(INC_PATH))
 
-SRC_PATH = srcs/
-SRC_NAME =	main.c \
-			color/color_add.c \
-			color/color_divide.c \
-			color/color_multiply.c \
-			color/color_to_max.c \
-			color/color_to_range.c \
-			vector/vector_add.c \
-			vector/vector_multiply.c \
-			vector/vector_divide.c \
-			vector/vector_sub.c \
-			vector/vector_dot_product.c \
-			vector/vector_magnitude.c \
-			vector/vector_normalize.c \
-			vector/vector_rotate.c \
-			parser/parser_file.c \
-			parser/parser_scene.c \
-			parser/parser_camera.c \
-			parser/parser_config.c \
-			parser/parser_vector.c \
-			parser/parser_double.c \
-			parser/value_to_double.c \
-			parser/value_exist.c \
-			parser/nerf_double.c \
-			parser/nerf_rotation.c \
-			parser/nerf_color.c \
-			parser/parser_lights.c \
-			parser/parser_light_type.c \
-			parser/parser_light_spec.c \
-			parser/parser_point.c \
-			parser/parser_directional.c \
-			parser/parser_parallel.c \
-			parser/parser_objects.c \
-			parser/parser_object_type.c \
-			parser/parser_object_spec.c \
-			parser/parser_sphere.c \
-			parser/parser_plane.c \
-			parser/parser_cylinder.c \
-			parser/parser_cone.c \
-			tracer/raytracer.c \
-			tracer/throw_ray.c \
-			hit/hit.c \
-			hit/intersection_spec.c \
-			hit/intersection_sphere.c \
-			hit/intersection_plane.c \
-			hit/intersection_cone.c \
-			hit/intersection_cylinder.c \
-			solver/solver_quadratic.c \
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                                  SOURCES                                     #
+
+SRC_PATH = ./srcs/
+SRC_NAME += main.c
+
+SRC_SUB += color
+SRC_NAME += color_add.c
+SRC_NAME += color_divide.c
+SRC_NAME += color_multiply.c
+SRC_NAME += color_to_max.c
+SRC_NAME += color_to_range.c
+
+SRC_SUB += hit
+SRC_NAME += hit.c
+SRC_NAME += intersection_cone.c
+SRC_NAME += intersection_cylinder.c
+SRC_NAME += intersection_plane.c
+SRC_NAME += intersection_spec.c
+SRC_NAME += intersection_sphere.c
+
+#SRC_SUB += object
+#SRC_NAME += cone.c
+#SRC_NAME += cylinder.c
+#SRC_NAME += get_normal.c
+#SRC_NAME += plan.c
+#SRC_NAME += solver_quadratic.c
+#SRC_NAME += sphere.c
+
+SRC_SUB += parser
+SRC_NAME += parser_camera.c
+SRC_NAME += parser_config.c
+SRC_NAME += parser_double.c
+SRC_NAME += parser_file.c
+SRC_NAME += parser_scene.c
+SRC_NAME += parser_vector.c
+
+SRC_SUB += parser/lights
+SRC_NAME += parser_directional.c
+SRC_NAME += parser_lights.c
+SRC_NAME += parser_light_spec.c
+SRC_NAME += parser_light_type.c
+SRC_NAME += parser_parallel.c
+SRC_NAME += parser_point.c
+
+SRC_SUB += parser/objects
+SRC_NAME += parser_cone.c
+SRC_NAME += parser_cylinder.c
+SRC_NAME += parser_objects.c
+SRC_NAME += parser_object_spec.c
+SRC_NAME += parser_object_type.c
+SRC_NAME += parser_plane.c
+SRC_NAME += parser_sphere.c
+
+SRC_SUB += parser/utils
+SRC_NAME += nerf_color.c
+SRC_NAME += nerf_double.c
+SRC_NAME += nerf_rotation.c
+SRC_NAME += value_exist.c
+SRC_NAME += value_to_double.c
+
+SRC_SUB += sdl
+SRC_NAME += sdl_destroy.c
+SRC_NAME += sdl_draw.c
+SRC_NAME += sdl_event.c
+SRC_NAME += sdl_init.c
+SRC_NAME += sdl_loop.c
+
+SRC_SUB += solver
+SRC_NAME += solver_quadratic.c
+
+SRC_SUB += tracer
+SRC_NAME += raytracer.c
+SRC_NAME += throw_ray.c
+
+SRC_SUB += vector
+SRC_NAME += vector_add.c
+SRC_NAME += vector_divide.c
+SRC_NAME += vector_dot_product.c
+SRC_NAME += vector_magnitude.c
+SRC_NAME += vector_multiply.c
+SRC_NAME += vector_normalize.c
+SRC_NAME += vector_rotate.c
+SRC_NAME += vector_sub.c
+
+vpath %.c $(SRC_PATH) $(addprefix $(SRC_PATH)/, $(SRC_SUB))
+
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                                  OBJECTS                                     #
+
+OBJ_PATH = ./.obj
+OBJ_NAME = $(SRC_NAME:%.c=%.o)
+OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME)) 
+
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                                LIBRARIES                                     #
+
+LIBFT_PATH = ./libft
+LIBFT = $(LIBFT_PATH)/libft.a
+CPPFLAGS += -I$(LIBFT_PATH)#/incs
+LDFLAGS += -L$(LIBFT_PATH) -lft
 
 
-SRC_NAME += sdl/sdl_destroy.c \
-			sdl/sdl_init.c \
-			sdl/sdl_loop.c \
-			sdl/sdl_draw.c \
-			sdl/sdl_event.c \
+LIBJSON_PATH = ./libjson
+LIBJSON = $(LIBJSON_PATH)/libjson.a
+CPPFLAGS += -I$(LIBJSON_PATH)/incs
+LDFLAGS += -L$(LIBJSON_PATH) -ljson
 
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+CPPFLAGS += `sdl2-config --cflags --libs`
+LDFLAGS += -lSDL2
 
-OBJ_PATH = obj/
-OBJ_NAME = $(SRC_NAME:.c=.o)
+LDFLAGS += -lm
 
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+#==============================================================================#
+#------------------------------------------------------------------------------#
+#                                 RULES                                        #
 
-CPPFLAGS = -I./incs \
-			-I./libft \
-			-I./libjson/incs \
-			`sdl2-config --cflags --libs` \
-
-LDFLAGS = -Llibft \
-			-L./libjson/ \
-
-LDLIBS = -lft -lSDL2 -lm -ljson
+NB = $(words $(SRC_NAME))
+INDEX = 0
 
 all: $(NAME)
 
-$(LIBFT):
-	make -C libft
 
-$(LIBJSON):
-	make -C libjson
+$(NAME): $(OBJ) $(LIBFT) $(LIBJSON)
+	@$(CC) -o $@ $^ $(LDFLAGS)
+	@printf '\033[33m[ READY ] %s\n\033[0m' "Compilation of $(NAME) is done ---"
+
+$(OBJ): $(INC) | $(OBJ_PATH)
+$(OBJ): $(OBJ_PATH)/%.o: %.c
+	@$(eval DONE=$(shell echo $$(($(INDEX)*20/$(NB)))))
+	@$(eval PERCENT=$(shell echo $$(($(INDEX)*100/$(NB)))))
+	@$(eval TO_DO=$(shell echo "$@"))
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@printf "[ %d%% ] %s :: %s        \r" $(PERCENT) $(NAME) $@
+	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 $(OBJ_PATH):
-	mkdir -p $(OBJ_PATH)
-	mkdir -p $(OBJ_PATH)vector
-	mkdir -p $(OBJ_PATH)color
-	mkdir -p $(OBJ_PATH)sdl
-	mkdir -p $(OBJ_PATH)parser
-	mkdir -p $(OBJ_PATH)object
-	mkdir -p $(OBJ_PATH)tracer
-	mkdir -p $(OBJ_PATH)hit
-	mkdir -p $(OBJ_PATH)solver
+	@mkdir -p $@
 
-$(NAME): $(LIBFT) $(LIBJSON) $(OBJ_PATH) $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS)  -o $(NAME)
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_PATH)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+$(LIBJSON):
+	@$(MAKE) -C $(LIBJSON_PATH)
 
 clean:
-	make clean -C libft
-	make clean -C libjson
-	$(RM) $(OBJ)
-	$(RM) $(OBJ_PATH)
+	@$(RM) $(OBJ_PATH)
+	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(LIBJSON_PATH) clean
+	@printf '\033[33m[ KILL ] %s\n\033[0m' "Clean of $(NAME) is done ---"
 
 fclean: clean
-	$(RM) $(LIBFT)
-	$(RM) $(LIBJSON)
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFT)
+	@$(RM) $(LIBJSON)
+	@printf '\033[33m[ KILL ] %s\n\033[0m' "Fclean of $(NAME) is done ---"
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re

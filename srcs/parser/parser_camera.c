@@ -6,14 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 20:33:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 18:08:12 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 18:12:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <math.h>
 
-#include "SDL.h"
 #include "rt.h"
 #include "camera.h"
 #include "parser.h"
