@@ -6,15 +6,15 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 22:53:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:18:37 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJECT_H
 # define OBJECT_H
 
-# include "ray.h"
 # include "vector.h"
+# include "ray.h"
 
 /*
 ** Object type list aka index for *f[]

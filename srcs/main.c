@@ -6,14 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:05:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:29:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "visu.h"
 #include "scene.h"
 #include "parser.h"
-#include "visu.h"
 
 void usage(char *bin)
 {
