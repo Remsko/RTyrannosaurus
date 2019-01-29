@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 13:16:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 13:21:07 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,6 @@ void    raytracer(t_scene *scene, t_visu *visu)
     int x;
     int y;
 
-    (void)scene;
-    (void)color;
-    color = (t_color){155, 155, 155};
     width = visu->screen.width;
     height = visu->screen.height;
     y = 0;
