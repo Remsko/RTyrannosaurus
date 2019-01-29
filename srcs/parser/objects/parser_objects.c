@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:29:22 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 19:09:22 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:04:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 /* exit de crado dans les sous parser */
 
-t_object *parser_objects(t_json_value *value)
+t_object *parser_objects(t_json_value *value, int *n_object)
 {
     t_json_array *a;
     t_object *objects;
@@ -35,6 +35,7 @@ t_object *parser_objects(t_json_value *value)
     if (value_exist(value) == false || value->type != array)
         return (NULL);
     a = (t_json_array *)value->ptr;
+    *n_object = (int)a->len;
     if ((objects = (t_object *)malloc(sizeof(t_object) * a->len)) == NULL)
         return (NULL);
     index = 0;

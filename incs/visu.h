@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 13:26:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 13:43:20 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 22:38:05 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VISU_H
 
 # include "SDL.h"
-# include "rt.h"
+# include "scene.h"
 
 /*
 ** Graphic window structures to use SDL functions
