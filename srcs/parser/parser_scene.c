@@ -6,15 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 13:11:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 00:30:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:01:01 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include "rt.h"
+#include "scene.h"
 #include "parser.h"
-#include "camera.h"
 
 #include "json_types.h"
 #include "json_getter.h"
@@ -32,7 +31,7 @@ t_scene *parser_scene(t_json_object *json)
         return (NULL);
     scene->config = parser_config(getter_by_key(json, "config"));
     scene->camera = parser_camera(getter_by_key(json, "camera"));
-    scene->objects = parser_objects(getter_by_key(json, "objects"));
-    scene->lights = parser_lights(getter_by_key(json, "lights"));
+    scene->objects = parser_objects(getter_by_key(json, "objects"), &scene->n_object);
+    scene->lights = parser_lights(getter_by_key(json, "lights"), &scene->n_light);
     return (scene);
 }

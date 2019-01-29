@@ -6,11 +6,14 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 13:21:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 22:55:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include <math.h>
+
+#include "SDL.h"
+#include "scene.h"
 #include "visu.h"
 #include "color.h"
 #include "vector.h"
@@ -42,7 +45,7 @@ t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
     ray.origin = camera->position;
     ray.direction.x = viewplane_x;
     ray.direction.y = viewplane_y;
-    ray.direction.z = camera->distance_from_viewplane;
+    ray.direction.z = 1000.0 / 2.0 / tan(camera->fov / 2.0 * M_PI / 180.0);
     ray.direction = vector_rotate3(ray.direction, camera->rotation);
     vector_normalize(&ray.direction);
     return (ray);

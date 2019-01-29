@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 21:12:59 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 22:40:55 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "scene.h"
 #include "color.h"
 #include "ray.h"
 #include "intersection.h"

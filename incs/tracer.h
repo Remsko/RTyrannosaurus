@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   tracer.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 22:30:23 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:29:16 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/01/29 23:29:44 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/01/29 23:30:15 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#ifndef TRACER_H
+# define TRACER_H
 
-#include "vector.h"
+#include "scene.h"
+#include "visu.h"
 
-/*
-** Ray structure thrown from camera's position
-*/
-
-typedef struct s_ray
-{
-    t_vector origin;
-    t_vector direction;
-} t_ray;
+void    raytracer(t_scene *scene, t_visu *visu);
 
 #endif

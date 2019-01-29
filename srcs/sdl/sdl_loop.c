@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 12:48:26 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 22:40:27 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#include "scene.h"
 #include "visu.h"
 
 #include "libft.h"

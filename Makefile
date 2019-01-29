@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/01/29 22:06:08 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/01/29 23:33:37 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,12 @@ INC_NAME += light.h
 INC_NAME += object.h
 INC_NAME += parser.h
 INC_NAME += ray.h
-INC_NAME += rt.h
+INC_NAME += scene.h
 INC_NAME += solver.h
 INC_NAME += utils.h
 INC_NAME += vector.h
 INC_NAME += visu.h
+INC_NAME += tracer.h
 
 INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
 
