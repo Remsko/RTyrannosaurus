@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 10:47:16 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 02:24:51 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/29 16:50:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		vector_normalize(t_vector *vector)
     vector_divide_const(vector, vector_magnitude(*vector));
 }
 
-t_vector	vector_norm(t_vector const vector)
+t_vector	vector_normalize_ret(t_vector const vector)
 {
     return (vector_divide_const_ret(vector, vector_magnitude(vector)));
 }

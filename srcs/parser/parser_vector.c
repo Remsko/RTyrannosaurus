@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 13:54:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/26 17:43:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 17:55:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include "json_parser.h"
 
 #include "libft.h"
+
+/*
+** TODO
+** refactor with parser_double
+*/
 
 static bool check_vector(t_json_array *a)
 {

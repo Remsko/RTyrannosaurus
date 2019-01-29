@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 19:31:10 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 13:14:51 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 18:00:05 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_config *parser_config(t_json_value *value)
     config->viewplane = parser_viewplane(getter_by_key(o, "viewplane"));
     nerf_double(&config->viewplane.width, 1.0, 3000.0);
     nerf_double(&config->viewplane.height, 1.0, 3000.0);
-    config->ambient = parser_double(getter_by_key(o, "ambient"));
+    config->ambient = parser_double(getter_by_key(o, "ambient-percentage")) / 100.0;
     nerf_double(&config->ambient, 0.0, 1.0);
     config->anti_aliasing = parser_double(getter_by_key(o, "anti-aliasing"));
     //nerf_int(&config->anti_aliasing, 1, 4);

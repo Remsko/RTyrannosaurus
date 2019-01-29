@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 15:17:48 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/01/29 17:10:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VECTOR_H
 
 /*
-** 3D Vector structure
+** 3D Vector
 */
 
 typedef struct	s_vector
@@ -56,6 +56,7 @@ t_vector vector_sub_const_ret(t_vector const vector, const double amount);
 
 /*
 ** Vector divide variations
+** in vector_divide.c
 */
 
 void vector_divide(t_vector *a, t_vector const b);
@@ -77,11 +78,11 @@ double vector_dot_product(t_vector const a, t_vector const b);
 double vector_magnitude(t_vector const vector);
 
 /*
-** Vector normalization to reduce vector len to 1
+** Vector normalization to reduce vector length to 1
 */
 
 void		vector_normalize(t_vector *vector);
-t_vector	vector_norm(t_vector const vector);
+t_vector	vector_normalize_ret(t_vector const vector);
 
 /*
 ** Vector matrix rotation

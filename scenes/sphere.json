@@ -7,9 +7,9 @@
 	},
 	"camera":
 	{
-		"position": [0, 0, 200],
+		"position": [0, 0, 400],
 		"rotation": [0, 0, 0],
-		"fov": 60
+		"fov": 90
 	},
 	"objects":
 	[

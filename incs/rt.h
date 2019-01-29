@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 13:43:40 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 17:11:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 
 # define WIN_W 1000
 # define WIN_H 1000
-
-/*
-** Environment structure: Raytracer configurations
-*/
 
 typedef struct s_viewplane
 {
