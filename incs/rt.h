@@ -6,14 +6,13 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:26:50 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 13:20:41 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 13:43:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RT_H
 # define RT_H
 
-//# include "visu.h"
 # include "camera.h"
 # include "light.h"
 # include "object.h"
@@ -47,7 +46,5 @@ typedef struct s_scene
     t_light *lights;
     //size_t l_length;
 } t_scene;
-
-void    raytracer(t_scene *scene, t_visu *visu);
 
 #endif
