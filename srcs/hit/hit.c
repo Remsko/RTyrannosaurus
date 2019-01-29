@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:53:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 21:10:27 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:38:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "ray.h"
 
 //#include <stdio.h>
-bool    hit(t_object *objects, int objects_length, t_ray ray)
+bool    hit(t_object *objects, int n_object, t_ray ray)
 {
     t_object *victim;
     double t;
@@ -29,7 +29,7 @@ bool    hit(t_object *objects, int objects_length, t_ray ray)
     victim = NULL;
     t = DBL_MAX;
     index = 0;
-    while (index < objects_length)
+    while (index < n_object)
     {
         if (intersection_spec(ray, &objects[index], &tmp))
         {

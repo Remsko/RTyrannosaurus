@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 20:34:45 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 22:10:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:38:50 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ray.h"
 #include "object.h"
 
-bool hit(t_object *objects, int objects_length, t_ray ray);
+bool hit(t_object *objects, int n_object, t_ray ray);
 
 int	intersection_spec(t_ray const ray, t_object const *object, double *t);
 

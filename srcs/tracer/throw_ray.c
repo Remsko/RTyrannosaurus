@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 22:40:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/29 23:37:48 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_color throw_ray(t_scene *scene, t_ray ray)
 {
     t_color color;
 
-    if (hit(scene->objects, 1, ray))
+    if (hit(scene->objects, scene->n_object, ray))
         color = (t_color){255.0, 0.0, 0.0};
     else
         ft_bzero((void *)&color, sizeof(t_color));
