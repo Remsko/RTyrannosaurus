@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:18:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/30 17:31:16 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef enum	e_object_type
 typedef struct	s_object
 {
     void    *spec;
+    t_material *mater;
     //t_mater   mater;
     t_object_type type;
 }				t_object;
