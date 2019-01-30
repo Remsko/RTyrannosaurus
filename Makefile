@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/01/29 23:33:37 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/01/30 20:04:32 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,8 @@ SRC_NAME += parser_double.c
 SRC_NAME += parser_file.c
 SRC_NAME += parser_scene.c
 SRC_NAME += parser_vector.c
+SRC_NAME += parser_color.c
+SRC_NAME += parser_material.c
 
 SRC_SUB += parser/lights
 SRC_NAME += parser_directional.c
