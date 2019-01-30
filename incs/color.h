@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:46:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2018/11/14 13:05:25 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/30 17:04:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ typedef struct s_color
     double g;
     double b;
 } t_color;
+
+typedef struct s_material
+{
+    t_color ambient;
+    t_color diffuse;
+    t_color specular;
+} t_material;
 
 /*
 ** Color add variations
