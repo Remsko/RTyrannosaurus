@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:29:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:04:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 12:59:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,27 @@
 
 #include "json_types.h"
 
+static void parse_each(t_light *lights, t_json_array *a)
+{
+    t_json_object *o;
+    uint32_t index;
+
+    index = 0;
+    while (index < a->len)
+    {
+        if (value_exist(a->value[index]) == false || a->value[index]->type != object)
+            exit (-1);
+        o = (t_json_object *)a->value[index]->ptr;
+        lights[index].type = parser_light_type(o);
+        lights[index].spec = parser_light_spec(o, lights[index].type);
+        ++index;
+    }
+}
+
 t_light *parser_lights(t_json_value *value, int *n_light)
 {
     t_json_array *a;
     t_light *lights;
-    uint32_t index;
 
     if (value_exist(value) == false || value->type != array)
         return (NULL);
@@ -30,15 +46,6 @@ t_light *parser_lights(t_json_value *value, int *n_light)
     *n_light = (int)a->len;
     if ((lights = (t_light *)malloc(sizeof(t_light) * a->len)) == NULL)
         return (NULL);
-    index = 0;
-    while (index < a->len)
-    {
-        if (value_exist(a->value[index]) == false)
-            exit(-1);
-        lights[index].type = parser_light_type(a->value[index]);
-        //printf("type = %d\n", lights[index].type);
-        lights[index].spec = parser_light_spec(a->value[index], lights[index].type);
-        ++index;
-    }
+    parse_each(lights, a);
     return (lights);
 }
