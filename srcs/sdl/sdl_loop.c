@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/31 18:49:18 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 19:15:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,63 @@
 ** Drawing loop
 */
 
-bool	camera_event(t_camera *camera, const unsigned char *keys)
+bool camera_rotate(t_vector *rot, const unsigned char *keys)
 {
 	if (keys[SDL_SCANCODE_UP])
 	{
-		camera->rotation.x -= 10.0;
+		rot->x -= 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_DOWN])
+	else if (keys[SDL_SCANCODE_DOWN])
 	{
-		camera->rotation.x += 10.0;
+		rot->x += 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_LEFT])
+	else if (keys[SDL_SCANCODE_LEFT])
 	{
-		camera->rotation.y -= 10.0;
+		rot->y -= 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_RIGHT])
+	else if (keys[SDL_SCANCODE_RIGHT])
 	{
-		camera->rotation.y += 10.0;
+		rot->y += 10.0;
 		return (true);
 	}
+	return (false);
+}
+
+bool camera_translate(t_vector *pos, const unsigned char *keys)
+{
+
 	if (keys[SDL_SCANCODE_W])
 	{
-		camera->position.y += 10.0;
+		pos->y += 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_S])
+	else if (keys[SDL_SCANCODE_S])
 	{
-		camera->position.y -= 10.0;
+		pos->y -= 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_A])
+	else if (keys[SDL_SCANCODE_A])
 	{
-		camera->position.x -= 10.0;
+		pos->x -= 10.0;
 		return (true);
 	}
-	if (keys[SDL_SCANCODE_D])
+	else if (keys[SDL_SCANCODE_D])
 	{
-		camera->position.x += 10.0;
+		pos->x += 10.0;
 		return (true);
 	}
+	return (false);
+}
+
+bool	camera_event(t_camera *camera, const unsigned char *keys)
+{
+	if (camera_rotate(&camera->rotation, keys))
+		return (true);
+	if (camera_translate(&camera->position, keys))
+		return (true);
 	return (false);
 }
 
