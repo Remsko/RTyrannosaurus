@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 18:05:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 18:10:32 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 10:58:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ void    *parser_plane(t_json_object *o)
         return (NULL);
     plane->center = parser_vector(getter_by_key(o, "center"));
     plane->normal = parser_vector(getter_by_key(o, "normal"));
-    // nerf ?
+    vector_normalize(&plane->normal);
     plane->rot = parser_vector(getter_by_key(o, "rot"));
     nerf_rotation(&plane->rot);
-    //plane->mater = parser_mater(getter_by_key(o, "mater"));
     return ((void *)plane);
 }
