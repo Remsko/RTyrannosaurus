@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/31 19:15:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 21:21:08 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,24 @@ bool camera_rotate(t_vector *rot, const unsigned char *keys)
 
 bool camera_translate(t_vector *pos, const unsigned char *keys)
 {
-
 	if (keys[SDL_SCANCODE_W])
 	{
-		pos->y += 10.0;
+		pos->y += 30.0;
 		return (true);
 	}
 	else if (keys[SDL_SCANCODE_S])
 	{
-		pos->y -= 10.0;
+		pos->y -= 30.0;
 		return (true);
 	}
 	else if (keys[SDL_SCANCODE_A])
 	{
-		pos->x -= 10.0;
+		pos->x -= 30.0;
 		return (true);
 	}
 	else if (keys[SDL_SCANCODE_D])
 	{
-		pos->x += 10.0;
+		pos->x += 30.0;
 		return (true);
 	}
 	return (false);
