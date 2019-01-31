@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 22:39:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 11:15:21 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_scene *parser_file(char *path)
     char *file;
     int fd;
 
-    scene = NULL;
     if ((fd = open(path, O_RDONLY)) == -1)
         return (NULL);
     file = read_file(fd);

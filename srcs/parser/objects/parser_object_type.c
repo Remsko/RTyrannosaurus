@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 15:27:20 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 16:05:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/30 21:11:00 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,11 @@
 ** TODO: improve error handling
 */
 
-t_object_type parser_object_type(t_json_value *value)
+t_object_type parser_object_type(t_json_object *o)
 {
-    t_json_object *o;
     t_json_value *v;
     t_json_string *s;
 
-    if (value->type != object)
-        exit(-1);
-    o = (t_json_object *)value->ptr;
     v = getter_by_key(o, "type");
     if (value_exist(v) == false || v->type != string)
         exit(-1);

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:01:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 11:14:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,13 @@ t_object *parser_objects(t_json_value *value, int *n_object);
 
 t_vector parser_vector(t_json_value *value);
 
-t_object_type parser_object_type(t_json_value *value);
+t_color parser_color(t_json_value *value);
 
-void *parser_object_spec(t_json_value *value, t_object_type type);
+t_material *parser_material(t_json_value *value);
+
+t_object_type parser_object_type(t_json_object *o);
+
+void *parser_object_spec(t_json_object *o, t_object_type type);
 
 void *parser_sphere(t_json_object *o);
 
@@ -56,8 +60,6 @@ void *parser_cylinder(t_json_object *o);
 void *parser_cone(t_json_object *o);
 
 double parser_double(t_json_value *value);
-
-double value_to_double(void *ptr, t_json_value_type type);
 
 bool value_exist(t_json_value *value);
 
