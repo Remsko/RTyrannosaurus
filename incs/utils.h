@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 12:46:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 12:48:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 16:07:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define UTILS_H
 
 #include "SDL.h"
+
+# define ROT 10.0
 
 # define degree_to_radian(x) ((x) * M_PI / 180.0)
 
