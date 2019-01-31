@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:01:24 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/30 21:23:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 11:14:29 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void *parser_cylinder(t_json_object *o);
 void *parser_cone(t_json_object *o);
 
 double parser_double(t_json_value *value);
-
-double value_to_double(void *ptr, t_json_value_type type);
 
 bool value_exist(t_json_value *value);
 

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/26 13:54:58 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 17:55:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/01/31 11:19:53 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,21 @@
 
 #include "libft.h"
 
-/*
-** TODO
-** refactor with parser_double
-*/
-
-static bool check_vector(t_json_array *a)
-{
-    t_json_value *v;
-    int index;
-
-    if (a->len != 3)
-        return (false);
-    index = 0;
-    while (index < 3)
-    {
-        v = a->value[index];
-        if (value_exist(v) == false)
-            return (false);
-        if (v->type != number && v->type != integer)
-            return (false);
-        ++index;
-    }
-    return (true);
-}
-
-static t_vector new_vector(t_json_array *a)
-{
-    t_vector v;
-
-    v.x = value_to_double(a->value[0]->ptr, a->value[0]->type);
-    v.y = value_to_double(a->value[1]->ptr, a->value[1]->type);;
-    v.z = value_to_double(a->value[2]->ptr, a->value[2]->type);;
-    return (v);
-}
-
 t_vector parser_vector(t_json_value *value)
 {
-    t_vector v;
+    t_json_array *a;
+    t_vector vector;
 
-    ft_bzero(&v, sizeof(v));
+    ft_bzero((void *)&vector, sizeof(t_vector));
     if (value_exist(value) && value->type == array)
     {
-        if (check_vector((t_json_array *)value->ptr))
-            v = new_vector((t_json_array *)value->ptr);
+        a = (t_json_array *)value->ptr;
+        if (a->len == 3)
+        {
+            vector.x = parser_double(a->value[0]);
+            vector.y = parser_double(a->value[1]);
+            vector.z = parser_double(a->value[2]);
+        }
     }
-    return (v);
+    return (vector);
 }
