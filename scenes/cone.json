@@ -17,7 +17,7 @@
 			"type": "cone",
 			"center": [0, 0, 0],
 			"rot": [30, 0, 30],
-			"mater":
+			"material":
 			{
 				"ambient": [255, 255, 255],
 				"diffuse": [255, 255, 255],

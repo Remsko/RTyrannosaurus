@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 19:02:43 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/30 20:08:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/01 15:21:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #include "json_getter.h"
 
+#include <stdio.h>
 t_material *parser_material(t_json_value *value)
 {
     t_material *mater;
@@ -30,8 +31,8 @@ t_material *parser_material(t_json_value *value)
     mater->ambient = parser_color(getter_by_key(o, "ambient"));
     nerf_color(&mater->ambient);
     mater->diffuse = parser_color(getter_by_key(o, "diffuse"));
-    nerf_color(&mater->ambient);
+    nerf_color(&mater->diffuse);
     mater->specular = parser_color(getter_by_key(o, "specular"));
-    nerf_color(&mater->ambient);
+    nerf_color(&mater->specular);
     return (mater);
 }
