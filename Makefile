@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/01/31 11:14:47 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/01 11:05:00 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,8 +155,8 @@ LIBJSON = $(LIBJSON_PATH)/libjson.a
 CPPFLAGS += -I$(LIBJSON_PATH)/incs
 LDFLAGS += -L$(LIBJSON_PATH) -ljson
 
-CPPFLAGS += `sdl2-config --cflags --libs`
-LDFLAGS += -lSDL2
+CPPFLAGS += `sdl2-config --cflags`
+LDFLAGS += `sdl2-config --libs`
 
 LDFLAGS += -lm
 
