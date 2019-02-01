@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 21:31:54 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/28 22:53:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/01 22:35:43 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_quadra
     double b;
     double c;
 } t_quadra;
+
+int solver_linear(double a, double b, double *t);
 
 int solver_quadratic(t_quadra quadra, double *t);
 
