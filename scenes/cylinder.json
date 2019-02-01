@@ -17,7 +17,7 @@
 			"type": "cylinder",
 			"center": [0, 0, 0],
 			"rot": [0, 0, 0],
-			"mater":
+			"material":
 			{
 				"ambient": [255, 255, 255],
 				"diffuse": [255, 255, 255],
