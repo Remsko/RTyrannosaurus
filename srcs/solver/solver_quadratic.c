@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 22:39:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 21:33:54 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/01 22:41:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ int solver_quadratic(t_quadra quadra, double *t)
         delta = sqrt(delta);
         root1 = (-quadra.b + delta) * 0.5 / quadra.a;
         root2 = (-quadra.b - delta) * 0.5 / quadra.a;
-        *t = fmin(root1, root2);
+        if (root1 < 0.0 && root2 < 0.0)
+            return (0);
+        if (root1 < root2 && root1 > 0.0)
+            *t = root1;
+        else
+            *t = root2;
         return (2);
     }
     else if (delta == 0.0)
