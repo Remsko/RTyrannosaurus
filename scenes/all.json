@@ -1,0 +1,91 @@
+{
+	"config":
+	{
+		"viewplane": [1000, 1000],
+		"ambient": 0.3,
+		"anti-aliasing": 1
+	},
+	"camera":
+	{
+		"position": [0, 0, -400],
+		"rotation": [0, 0, 0],
+		"fov": 90
+	},
+	"objects":
+	[
+		{
+			"type": "sphere",
+			"center": [0, 0, 0],
+			"rot": [0, 0, 0],
+			"material":
+			{
+				"ambient": [255, 205, 155],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 50
+        },
+        {
+			"type": "sphere",
+			"center": [300, 300, 100],
+			"rot": [0, 0, 0],
+			"material":
+			{
+				"ambient": [15, 145, 145],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 100
+        },
+        {
+			"type": "plane",
+			"center": [0, -10, 0],
+            "rot": [0, 0, 0],
+            "normal": [0, 1, 0],
+			"material":
+			{
+				"ambient": [200, 105, 155],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			}
+        },
+        {
+			"type": "cylinder",
+			"center": [200, 50, 0],
+			"rot": [-30, -30, -30],
+			"material":
+			{
+				"ambient": [15, 205, 55],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 50
+        },
+        {
+			"type": "cone",
+			"center": [-200, 100, -100],
+			"rot": [60, 30, 0],
+			"material":
+			{
+				"ambient": [155, 5, 55],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 50
+        }
+	],
+	"lights":
+	[
+		{
+			"type": "point",
+			"source": [0, 100, 100],
+			"color": [255, 255, 255],
+			"intensity": 0.3
+		}
+	]
+}
