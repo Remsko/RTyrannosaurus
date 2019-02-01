@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solver.h                                           :+:      :+:    :+:   */
+/*   solver_linear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 21:31:54 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 22:35:43 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/01 20:35:15 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/01 21:28:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLVER_H
-# define SOLVER_H
-
-#define EPSILON 10E-9
-
-typedef struct s_quadra
+int solver_linear(double a, double b, double *t)
 {
-    double a;
-    double b;
-    double c;
-} t_quadra;
-
-int solver_linear(double a, double b, double *t);
-
-int solver_quadratic(t_quadra quadra, double *t);
-
-#endif
+    if (a == 0.0)
+        return (0);
+    *t = -b / a;
+    return (1);
+}

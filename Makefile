@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/01 11:05:00 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/01 21:29:36 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,7 @@ SRC_NAME += sdl_init.c
 SRC_NAME += sdl_loop.c
 
 SRC_SUB += solver
+SRC_NAME += solver_linear.c
 SRC_NAME += solver_quadratic.c
 
 SRC_SUB += tracer
