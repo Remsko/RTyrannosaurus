@@ -6,11 +6,11 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 20:35:15 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 21:28:45 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/03 22:27:54 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int solver_linear(double a, double b, double *t)
+int solver_linear(const double a, const double b, double *t)
 {
     if (a == 0.0)
         return (0);
