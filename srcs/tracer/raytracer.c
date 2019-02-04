@@ -6,27 +6,20 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/04 11:10:02 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/04 18:54:39 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "SDL.h"
 #include "scene.h"
 #include "visu.h"
 #include "color.h"
 #include "vector.h"
+#include "tracer.h"
 
 #include "libft.h"
 
-t_color throw_ray(t_scene *scene, t_ray ray);
-
-void pixel_put(t_visu *v, t_color c, int x, int y)
-{
-    SDL_SetRenderDrawColor(v->renderer, c.r, c.g, c.b, 255);
-    SDL_RenderDrawPoint(v->renderer, x, y);
-}
 
 double viewplane_x(int width, int column, int x, int samples)
 {
@@ -38,27 +31,27 @@ double viewplane_y(int height, int row, int y, int samples)
     return (height / 2 - y + (row + 0.5) / samples);
 }
 
-t_ray new_ray(t_camera *camera, double viewplane_x, double viewplane_y)
+void new_ray(const t_camera *camera, t_ray *ray, const double viewplane_x, const double viewplane_y)
 {
-    t_ray ray;
-
-    ray.origin = camera->position;
-    ray.direction.x = viewplane_x;
-    ray.direction.y = viewplane_y;
-    ray.direction.z = 1000.0 / 2.0 / tan(camera->fov / 2.0 * M_PI / 180.0);
-    ray.direction = vector_rotate3(ray.direction, camera->rotation);
-    vector_normalize(&ray.direction);
-    return (ray);
+    ft_bzero((void *)ray, sizeof(t_ray));
+    ray->origin = camera->position;
+    ray->direction.x = viewplane_x;
+    ray->direction.y = viewplane_y;
+    ray->direction.z = camera->distance;
+    ray->direction = vector_rotate3(ray->direction, camera->rotation);
+    vector_normalize(&ray->direction);
 }
 
 void pixel_color(t_scene *scene, t_color *color, int x, int y)
 {
+    t_viewplane *viewplane;
     t_ray ray;
     int samples;
     int row;
     int column;
 
-    ft_bzero((void *)color, sizeof(t_color));
+
+    viewplane = &scene->config->viewplane;
     samples = scene->config->anti_aliasing;
     row = 0;
     while (row < samples)
@@ -66,13 +59,13 @@ void pixel_color(t_scene *scene, t_color *color, int x, int y)
         column = 0;
         while (column < samples)
         {
-            ray = new_ray(
+            new_ray(
                 scene->camera,
-                viewplane_x(scene->config->viewplane.width, column, x, samples),
-                viewplane_y(scene->config->viewplane.height, row, y, samples)
+                &ray,
+                viewplane_x(viewplane->width, column, x, samples),
+                viewplane_y(viewplane->height, row, y, samples)
             );
-            t_color to_delete = throw_ray(scene, ray);
-            color_add(color, to_delete);
+            color_add(color, throw_ray(scene, ray));
             ++column;
         }
         ++row;
@@ -96,8 +89,9 @@ void    raytracer(t_scene *scene, t_visu *visu)
         x = 0;
         while (x < width)
         {
+            ft_bzero((void *)&color, sizeof(t_color));
             pixel_color(scene, &color, x, y);
-            pixel_put(visu, color, x, y);
+            sdl_pixel(visu, &color, x, y);
             ++x;
         }
         ++y;

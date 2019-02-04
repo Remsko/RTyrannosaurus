@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/01 21:29:36 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/04 16:01:40 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,6 +112,7 @@ SRC_NAME += sdl_draw.c
 SRC_NAME += sdl_event.c
 SRC_NAME += sdl_init.c
 SRC_NAME += sdl_loop.c
+SRC_NAME += sdl_pixel.c
 
 SRC_SUB += solver
 SRC_NAME += solver_linear.c
