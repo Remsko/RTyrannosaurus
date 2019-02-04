@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:46:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/30 17:04:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/04 11:08:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct s_material
 ** in color_add.c
 */
 
-void color_add(t_color *target, t_color *amount);
+void color_add(t_color *target, const t_color amount);
 void color_add_const(t_color *target, const double amount);
-t_color color_add_ret(t_color *color, t_color *amount);
+t_color color_add_ret(t_color *color, const t_color amount);
 t_color color_add_const_ret(t_color *color, const double amount);
 
 /*
@@ -46,9 +46,9 @@ t_color color_add_const_ret(t_color *color, const double amount);
 ** in color_divide.c
 */
 
-void color_divide(t_color *target, t_color *amount);
+void color_divide(t_color *target, const t_color amount);
 void color_divide_const(t_color *target, const double amount);
-t_color color_divide_ret(t_color *color, t_color *amount);
+t_color color_divide_ret(t_color *color, const t_color amount);
 t_color color_divide_const_ret(t_color *color, const double amount);
 
 /*
@@ -56,9 +56,9 @@ t_color color_divide_const_ret(t_color *color, const double amount);
 ** in color_multiply.c
 */
 
-void color_multiply(t_color *target, t_color *amount);
+void color_multiply(t_color *target, const t_color amount);
 void color_multiply_const(t_color *target, const double amount);
-t_color color_multiply_ret(t_color *color, t_color *amount);
+t_color color_multiply_ret(t_color *color, const t_color amount);
 t_color color_multiply_const_ret(t_color *color, const double amount);
 
 /*

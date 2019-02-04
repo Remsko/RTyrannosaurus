@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 22:55:04 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/04 11:10:02 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void pixel_color(t_scene *scene, t_color *color, int x, int y)
                 viewplane_y(scene->config->viewplane.height, row, y, samples)
             );
             t_color to_delete = throw_ray(scene, ray);
-            color_add(color, &to_delete);
+            color_add(color, to_delete);
             ++column;
         }
         ++row;

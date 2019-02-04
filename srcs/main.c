@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 23:29:04 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/04 10:09:03 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void scene_in_the_poubelle(t_scene *scene)
 		if (scene->objects != NULL)
 		{
 			for (int i = 0; i < scene->n_object; i++)
+			{
 				free(scene->objects[i].spec);
+				free(scene->objects[i].mater);
+			}
 			free(scene->objects);
 		}
 		if (scene->lights != NULL)
@@ -55,8 +58,8 @@ int	main(int ac, char **av)
 	{
 		if ((scene = parser_file(av[1])) == NULL)
 			return (1);
-		v.screen.width = scene->config->viewplane.width;
-		v.screen.height = scene->config->viewplane.height;
+		v.screen.width = (int)scene->config->viewplane.width;
+		v.screen.height = (int)scene->config->viewplane.height;
 		sdl_init(&v);
 		sdl_loop(scene, &v);
 		sdl_destroy(&v);
