@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 10:55:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 01:25:48 by kehuang          ###   ########.fr       */
+/*   Updated: 2019/02/05 19:54:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** Vector length calculation
 */
 
-double vector_magnitude(t_vector const vector)
+double vector_magnitude(const t_vector *vector)
 {
     return (sqrt(vector_dot_product(vector, vector)));
 }
