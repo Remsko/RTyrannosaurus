@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/04 16:01:40 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/06 12:42:55 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ INC_NAME += parser.h
 INC_NAME += ray.h
 INC_NAME += scene.h
 INC_NAME += solver.h
-INC_NAME += utils.h
+INC_NAME += event.h
 INC_NAME += vector.h
 INC_NAME += visu.h
 INC_NAME += tracer.h
@@ -131,6 +131,10 @@ SRC_NAME += vector_multiply.c
 SRC_NAME += vector_normalize.c
 SRC_NAME += vector_rotate.c
 SRC_NAME += vector_sub.c
+
+SRC_SUB += event
+SRC_NAME += event_handle.c
+SRC_NAME += event_camera.c
 
 vpath %.c $(SRC_PATH) $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 

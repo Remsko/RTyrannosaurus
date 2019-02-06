@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 12:46:36 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/31 16:07:04 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/06 12:40:03 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/06 12:45:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef EVENT_H
+#define EVENT_H
 
-#include "SDL.h"
+#include <stdbool.h>
+#include "camera.h"
+#include "scene.h"
 
-# define ROT 10.0
+#define CONST_ROT 10.0
+#define CONST_TRANS 30.0
 
-# define degree_to_radian(x) ((x) * M_PI / 180.0)
+bool    event_camera(t_camera *camera, const unsigned char *keys);
+bool    event_handle(t_scene *scene, const unsigned char *keys);
 
 #endif
