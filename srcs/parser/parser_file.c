@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 15:51:17 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/31 11:15:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 13:29:26 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char    *read_file(int fd)
     int     ret;
 
     str = NULL;
-    while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+    while ((ret = (int)read(fd, buf, BUFF_SIZE)) > 0)
     {
         buf[ret] = '\0';
         if (str != NULL)

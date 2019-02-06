@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/06 12:55:07 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/06 13:28:05 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
 #                            COMPILER & FLAGS                                  #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -Wconversion
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
 
 #==============================================================================#
