@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 13:26:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/04 18:46:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 21:33:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 /*
 ** Graphic window structures to use SDL functions
 */
+
+typedef struct  s_pixel
+{
+    int x;
+    int y;
+} t_pixel;
 
 typedef struct s_screen
 {
@@ -35,8 +41,8 @@ typedef struct s_options
 
 typedef struct s_events
 {
-	t_options options;
 	const unsigned char *keys;
+	t_options options;
 } t_events;
 
 typedef struct s_visu
@@ -88,6 +94,6 @@ void sdl_event(t_events *e);
 ** in sdl_pixel.c
 */
 
-void sdl_pixel(const t_visu *v, const t_color *c, const int x, const int y);
+void sdl_pixel(const t_visu *v, const t_pixel *p, const t_color *c);
 
 #endif

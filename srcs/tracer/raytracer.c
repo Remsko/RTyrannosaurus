@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 19:42:40 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 21:43:32 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 #include "libft.h"
 
-static void pixel_color(t_scene *scene, t_color *color, t_screen *screen, int x, int y)
+static void pixel_color(t_scene *scene, t_screen *screen, t_pixel *pixel, t_color *color)
 {
     t_ray *ray;
-    t_pixel pixel;
+    t_position position;
     int samples;
     int row;
     int column;
@@ -35,8 +35,8 @@ static void pixel_color(t_scene *scene, t_color *color, t_screen *screen, int x,
         column = 0;
         while (column < samples)
         {
-            pixel = regular_sample(screen, row, column, x, y, samples);
-            if ((ray = new_ray(scene->camera, &pixel)) != NULL)
+            position = regular_sample(screen, pixel, row, column, samples);
+            if ((ray = new_ray(scene->camera, &position)) != NULL)
                 color_add(color, throw_ray(scene, ray));
             free(ray);
             ++column;
@@ -50,23 +50,20 @@ void    raytracer(t_scene *scene, t_visu *visu)
 {
     t_screen *screen;
     t_color color;
-    int x;
-    int y;
+    t_pixel pixel;
 
     screen = &visu->screen;
-    width = screen->width;
-    height = screen->height;
-    y = 0;
-    while (y < height)
+    pixel.y = 0;
+    while (pixel.y < screen->height)
     {
-        x = 0;
-        while (x < width)
+        pixel.x = 0;
+        while (pixel.x < screen->width)
         {
             ft_bzero((void *)&color, sizeof(t_color));
-            pixel_color(scene, &color, screen, x, y);
-            sdl_pixel(visu, &color, x, y);
-            ++x;
+            pixel_color(scene, screen, &pixel, &color);
+            sdl_pixel(visu, &pixel, &color);
+            ++pixel.x;
         }
-        ++y;
+        ++pixel.y;
     }
 }

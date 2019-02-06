@@ -6,18 +6,18 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 17:29:04 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 19:38:36 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 21:41:36 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "tracer.h"
 #include "visu.h"
 
-t_pixel   regular_sample(t_screen *screen, int row, int column, int x, int y, int samples)
+t_position regular_sample(t_screen *screen, t_pixel *pixel, int row, int column, int samples)
 {
-    t_pixel p;
+    t_position position;
 
-    p.x = x - screen->width * 0.5 + (column + 0.5) / samples;
-    p.y = screen->height * 0.5 - y + (row + 0.5) / samples;
-    return (p);
+    position.x = pixel->x - screen->width * 0.5 + (column + 0.5) / samples;
+    position.y = screen->height * 0.5 - pixel->y + (row + 0.5) / samples;
+    return (position);
 }
