@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/01 21:29:36 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/06 13:28:05 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ INC_NAME += parser.h
 INC_NAME += ray.h
 INC_NAME += scene.h
 INC_NAME += solver.h
-INC_NAME += utils.h
+INC_NAME += event.h
 INC_NAME += vector.h
 INC_NAME += visu.h
 INC_NAME += tracer.h
@@ -40,7 +40,7 @@ INC = $(addprefix $(INC_PATH)/, $(INC_NAME))
 #                            COMPILER & FLAGS                                  #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -Wconversion
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
 
 #==============================================================================#
@@ -112,6 +112,7 @@ SRC_NAME += sdl_draw.c
 SRC_NAME += sdl_event.c
 SRC_NAME += sdl_init.c
 SRC_NAME += sdl_loop.c
+SRC_NAME += sdl_pixel.c
 
 SRC_SUB += solver
 SRC_NAME += solver_linear.c
@@ -119,6 +120,7 @@ SRC_NAME += solver_quadratic.c
 
 SRC_SUB += tracer
 SRC_NAME += raytracer.c
+SRC_NAME += new_ray.c
 SRC_NAME += throw_ray.c
 
 SRC_SUB += vector
@@ -130,6 +132,10 @@ SRC_NAME += vector_multiply.c
 SRC_NAME += vector_normalize.c
 SRC_NAME += vector_rotate.c
 SRC_NAME += vector_sub.c
+
+SRC_SUB += event
+SRC_NAME += event_handle.c
+SRC_NAME += event_camera.c
 
 vpath %.c $(SRC_PATH) $(addprefix $(SRC_PATH)/, $(SRC_SUB))
 

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tracer.h                                           :+:      :+:    :+:   */
+/*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 23:29:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 13:15:38 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/06 12:40:03 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/06 12:45:38 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TRACER_H
-# define TRACER_H
+#ifndef EVENT_H
+#define EVENT_H
 
+#include <stdbool.h>
+#include "camera.h"
 #include "scene.h"
-#include "visu.h"
 
-#define PIXEL_CENTER 0.5
+#define CONST_ROT 10.0
+#define CONST_TRANS 30.0
 
-void    raytracer(t_scene *scene, t_visu *visu);
-
-t_ray   *new_ray(const t_camera *camera, const double vp_x, const double vp_y);
-
-t_color throw_ray(t_scene *scene, t_ray *ray);
+bool    event_camera(t_camera *camera, const unsigned char *keys);
+bool    event_handle(t_scene *scene, const unsigned char *keys);
 
 #endif

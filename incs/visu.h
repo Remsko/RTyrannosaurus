@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/29 13:26:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/29 22:38:05 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/04 18:46:23 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,12 @@ void sdl_draw(t_scene *s, t_visu *v);
 */
 
 void sdl_event(t_events *e);
+
+/*
+** Set rgb color to one pixel in the window
+** in sdl_pixel.c
+*/
+
+void sdl_pixel(const t_visu *v, const t_color *c, const int x, const int y);
 
 #endif
