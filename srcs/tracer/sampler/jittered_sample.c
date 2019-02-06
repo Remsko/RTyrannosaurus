@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sdl_pixel.c                                        :+:      :+:    :+:   */
+/*   jittered_sample.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/04 15:55:47 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 21:33:47 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/06 19:12:23 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/06 21:40:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "SDL.h"
-
-#include "color.h"
+#include "tracer.h"
 #include "visu.h"
 
-void sdl_pixel(const t_visu *v, const t_pixel *p, const t_color *c)
+static double r(void)
 {
-    SDL_SetRenderDrawColor(v->renderer, (Uint8)c->r, (Uint8)c->g, (Uint8)c->b, 255);
-    SDL_RenderDrawPoint(v->renderer, p->x, p->y);
+    return ((rand() % 10) / 10.0);
+}
+
+t_position jittered_sample(t_screen *screen, t_pixel *pixel, int row, int column, int samples)
+{
+    t_position position;
+
+    position.x = pixel->x - screen->width * 0.5 + (column + r()) / samples;
+    position.y = screen->height * 0.5 - pixel->y + (row + r()) / samples;
+    return (position);
 }
