@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 20:27:39 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 10:11:14 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 10:30:59 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 
 int		intersection_spec(const t_ray *ray, const t_object *obj, double *t)
 {
-	static int	(*intersection[OBJECT_MAX])(const t_ray *ray, const void *object,
-											double *t) =
+	static int (*i[OBJECT_MAX])(const t_ray *ray, const void *spec, double *t) =
 	{
 		[SPHERE] = &intersection_sphere,
 		[PLANE] = &intersection_plane,
@@ -25,5 +24,5 @@ int		intersection_spec(const t_ray *ray, const t_object *obj, double *t)
 		[CONE] = &intersection_cone
 	};
 
-	return (intersection[obj->type](ray, obj->spec, t));
+	return (i[obj->type](ray, obj->spec, t));
 }
