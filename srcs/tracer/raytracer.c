@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 13:35:07 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 19:42:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,10 @@
 
 #include "libft.h"
 
-static double regular_sample_x(int width, int column, int x, int samples)
-{
-    return (x - width * 0.5 + (column + PIXEL_CENTER) / samples);
-}
-
-static double regular_sample_y(int height, int row, int y, int samples)
-{
-    return (height * 0.5 - y + (row + PIXEL_CENTER) / samples);
-}
-
 static void pixel_color(t_scene *scene, t_color *color, t_screen *screen, int x, int y)
 {
     t_ray *ray;
+    t_pixel pixel;
     int samples;
     int row;
     int column;
@@ -44,12 +35,8 @@ static void pixel_color(t_scene *scene, t_color *color, t_screen *screen, int x,
         column = 0;
         while (column < samples)
         {
-            ray = new_ray(
-                scene->camera,
-                regular_sample_x(screen->width, column, x, samples),
-                regular_sample_y(screen->height, row, y, samples)
-            );
-            if (ray != NULL)
+            pixel = regular_sample(screen, row, column, x, y, samples);
+            if ((ray = new_ray(scene->camera, &pixel)) != NULL)
                 color_add(color, throw_ray(scene, ray));
             free(ray);
             ++column;
@@ -61,14 +48,14 @@ static void pixel_color(t_scene *scene, t_color *color, t_screen *screen, int x,
 
 void    raytracer(t_scene *scene, t_visu *visu)
 {
+    t_screen *screen;
     t_color color;
-    int width;
-    int height;
     int x;
     int y;
 
-    width = visu->screen.width;
-    height = visu->screen.height;
+    screen = &visu->screen;
+    width = screen->width;
+    height = screen->height;
     y = 0;
     while (y < height)
     {
@@ -76,7 +63,7 @@ void    raytracer(t_scene *scene, t_visu *visu)
         while (x < width)
         {
             ft_bzero((void *)&color, sizeof(t_color));
-            pixel_color(scene, &color, &visu->screen, x, y);
+            pixel_color(scene, &color, screen, x, y);
             sdl_pixel(visu, &color, x, y);
             ++x;
         }

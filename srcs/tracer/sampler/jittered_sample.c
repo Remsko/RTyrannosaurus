@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tracer.h                                           :+:      :+:    :+:   */
+/*   jittered_sample.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/29 23:29:44 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 19:37:49 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/06 19:12:23 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/06 19:38:09 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TRACER_H
-# define TRACER_H
-
-#include "scene.h"
+#include "vector.h"
 #include "visu.h"
 
-void    raytracer(t_scene *scene, t_visu *visu);
+static double r(void)
+{
+    return ((rand() % 10) / 10.0);
+}
 
-t_pixel   regular_sample(t_screen *screen, int row, int column, int x, int y, int samples);
+t_pixel jittered_sample(t_screen *screen, int row, int column, int x, int y, int samples)
+{
+    t_pixel p;
 
-t_pixel   jittered_sample(t_screen *screen, int row, int column, int x, int y, int samples);
-
-t_ray   *new_ray(const t_camera *camera, t_pixel *pixel);
-
-t_color throw_ray(t_scene *scene, t_ray *ray);
-
-
-#endif
+    p.x = x - screen->width * 0.5 + (column + r()) / samples;
+    p.y = screen->height * 0.5 - y + (row + r()) / samples;
+    return (p);
+}

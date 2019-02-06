@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/06 13:28:05 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/06 19:15:09 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,6 +122,11 @@ SRC_SUB += tracer
 SRC_NAME += raytracer.c
 SRC_NAME += new_ray.c
 SRC_NAME += throw_ray.c
+
+SRC_SUB += tracer/sampler
+SRC_NAME += jittered_sample.c
+SRC_NAME += regular_sample.c
+
 
 SRC_SUB += vector
 SRC_NAME += vector_add.c

@@ -1,9 +1,9 @@
 {
 	"config":
 	{
-		"viewplane": [1000, 1000],
+		"viewplane": [2000, 1500],
 		"ambient": 0.3,
-		"anti-aliasing": 1
+		"anti-aliasing": 2
 	},
 	"camera":
 	{

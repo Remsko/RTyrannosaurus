@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 10:04:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 19:36:53 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 /*
 ** 3D Vector
 */
+
+typedef struct  s_pixel
+{
+    double x;
+    double y;
+} t_pixel;
 
 typedef struct	s_vector
 {
