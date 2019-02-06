@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 10:08:47 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 13:22:33 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,23 @@
 
 #include "libft.h"
 
-
-double viewplane_x(int width, int column, int x, int samples)
+static double regular_sample_x(int width, int column, int x, int samples)
 {
-    return (x - width / 2.0 + (column + 0.5) / samples);
+    return (x - width * 0.5 + (column + PIXEL_CENTER) / samples);
 }
 
-double viewplane_y(int height, int row, int y, int samples)
+static double regular_sample_y(int height, int row, int y, int samples)
 {
-    return (height / 2 - y + (row + 0.5) / samples);
+    return (height * 0.5 - y + (row + PIXEL_CENTER) / samples);
 }
 
-void new_ray(const t_camera *camera, t_ray *ray, const double viewplane_x, const double viewplane_y)
-{
-    ft_bzero((void *)ray, sizeof(t_ray));
-    ray->origin = camera->position;
-    ray->direction.x = viewplane_x;
-    ray->direction.y = viewplane_y;
-    ray->direction.z = camera->distance;
-    vector_rotate(&ray->direction, &camera->rotation);
-    vector_normalize(&ray->direction);
-}
-
-void pixel_color(t_scene *scene, t_color *color, int x, int y)
+static void pixel_color(t_scene *scene, t_color *color, int x, int y)
 {
     t_viewplane *viewplane;
-    t_ray ray;
+    t_ray *ray;
     int samples;
     int row;
     int column;
-
 
     viewplane = &scene->config->viewplane;
     samples = scene->config->anti_aliasing;
@@ -59,13 +46,14 @@ void pixel_color(t_scene *scene, t_color *color, int x, int y)
         column = 0;
         while (column < samples)
         {
-            new_ray(
+            ray = new_ray(
                 scene->camera,
-                &ray,
-                viewplane_x(viewplane->width, column, x, samples),
-                viewplane_y(viewplane->height, row, y, samples)
+                regular_sample_x(viewplane->width, column, x, samples),
+                regular_sample_y(viewplane->height, row, y, samples)
             );
-            color_add(color, throw_ray(scene, &ray));
+            if (ray != NULL)
+                color_add(color, throw_ray(scene, ray));
+            free(ray);
             ++column;
         }
         ++row;
