@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/04 18:54:39 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 10:08:47 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void new_ray(const t_camera *camera, t_ray *ray, const double viewplane_x, const
     ray->direction.x = viewplane_x;
     ray->direction.y = viewplane_y;
     ray->direction.z = camera->distance;
-    ray->direction = vector_rotate3(ray->direction, camera->rotation);
+    vector_rotate(&ray->direction, &camera->rotation);
     vector_normalize(&ray->direction);
 }
 
@@ -65,7 +65,7 @@ void pixel_color(t_scene *scene, t_color *color, int x, int y)
                 viewplane_x(viewplane->width, column, x, samples),
                 viewplane_y(viewplane->height, row, y, samples)
             );
-            color_add(color, throw_ray(scene, ray));
+            color_add(color, throw_ray(scene, &ray));
             ++column;
         }
         ++row;

@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:53:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 15:07:38 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 10:18:25 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "ray.h"
 
 //#include <stdio.h>
-t_object *hit(t_object *objects, int n_object, t_ray ray)
+t_object *hit(t_ray *ray, t_object *objects, int n_object)
 {
     t_object *victim;
     double t;

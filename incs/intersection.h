@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 20:34:45 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 15:07:59 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/06 10:19:06 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 #include "ray.h"
 #include "object.h"
 
-t_object *hit(t_object *objects, const int n_object, t_ray ray);
+t_object *hit(t_ray *ray, t_object *objects, const int n_object);
 
-int	intersection_spec(t_ray const ray, t_object const *object, double *t);
+int	intersection_spec(const t_ray *ray, const t_object *object, double *t);
 
-int intersection_sphere(t_ray const ray, void const *object, double *t);
+int intersection_sphere(const t_ray *ray, const void *object, double *t);
 
-int intersection_plane(t_ray const ray, void const *object, double *t);
+int intersection_plane(const t_ray *ray, const void *object, double *t);
 
-int intersection_cone(t_ray const ray, void const *object, double *t);
+int intersection_cone(const t_ray *ray, const void *object, double *t);
 
-int intersection_cylinder(t_ray const ray, void const *object, double *t);
+int intersection_cylinder(const t_ray *ray, const void *object, double *t);
 
 
 #endif
