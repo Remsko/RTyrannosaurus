@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 22:44:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 23:56:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ t_color throw_ray(t_scene *scene, t_ray *ray)
 
     if ((victim = hit(&t, ray, scene->objects, scene->n_object)) != NULL)
     {
-        hit_ = vector_multiply_const_ret(&ray->direction, t);
+        t_vector tmp = vector_multiply_const_ret(&ray->direction, t);
+        hit_ = vector_add_ret(&ray->origin, &tmp);
         object_color = phong_shading(scene, victim, ray, &hit_);
         color_to_range_0_255(&object_color);
     }

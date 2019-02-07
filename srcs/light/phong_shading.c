@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:35:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 23:37:23 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 00:03:54 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static t_color ambient(t_object *object, double ambient)
     return (color_multiply_const_ret(&object->mater->ambient, ambient));
 }
 
-t_color diffuse(t_object *object, t_light *light, double cos_teta)
+static t_color diffuse(t_object *object, t_light *light, double cos_teta)
 {
     t_color diffuse;
 
@@ -55,8 +55,7 @@ t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hi
         vector_normalize(&light_ray->direction);
         if (shadow(scene, light_ray, distance) == false)
         {
-            normal = vector_sub_ret(hit, &((t_sphere *)victim->spec)->center);
-            vector_normalize(&normal);
+            normal = new_normal(victim, ray, hit);
             cos_teta = vector_dot_product(&light_ray->direction, &normal);
             if (cos_teta > 0.0)
                 color_add(&shading, diffuse(victim, &scene->lights[index], cos_teta)); 
@@ -64,44 +63,5 @@ t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hi
         free(light_ray);
         ++index;
     }
-   (void)scene;
-   (void)victim;
-   (void)ray;
-   (void)hit;
     return (shading);
 }
-
-/*
-t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hit)
-{
-    t_ray *light_ray;
-    //t_vector object_normal;
-    t_color object_color;
-    t_vector normal;
-    double cos_teta;
-    double distance;
-    int index;
-
-    object_color = ambient(victim, scene->config->ambient);
-    index = 0;
-    while (index < scene->n_light)
-    {
-        light_ray = new_light_ray(&scene->lights[index], hit);
-        distance = vector_magnitude(&light_ray->direction);
-        vector_normalize(&light_ray->direction);
-        if (shadow(scene, light_ray, distance) == false)
-        {
-            normal = vector_sub_ret(hit, &((t_sphere *)victim->spec)->center);
-            vector_normalize(&normal);
-            cos_teta = vector_dot_product(&light_ray->direction, &normal);
-            //if (cos_teta > 0.0)
-            //    color_add(&object_color, diffuse(victim, &scene->lights[index], cos_teta)); 
-        }
-        free(light_ray);
-        ++index;
-    }
-    (void)cos_teta;
-    (void)ray;
-    return (object_color);
-}
-*/
