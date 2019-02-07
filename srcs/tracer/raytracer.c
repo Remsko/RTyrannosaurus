@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 20:07:03 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 21:43:32 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 21:25:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void pixel_color(t_scene *scene, t_screen *screen, t_pixel *pixel, t_colo
         while (column < samples)
         {
             position = regular_sample(screen, pixel, row, column, samples);
-            if ((ray = new_ray(scene->camera, &position)) != NULL)
+            if ((ray = new_camera_ray(scene->camera, &position)) != NULL)
                 color_add(color, throw_ray(scene, ray));
             free(ray);
             ++column;
