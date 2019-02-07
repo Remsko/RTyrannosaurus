@@ -15,7 +15,7 @@
 	[
 		{
 			"type": "sphere",
-			"center": [0, 0, 0],
+			"center": [100, 0, 200],
 			"rot": [0, 0, 0],
 			"material":
 			{

@@ -6,14 +6,60 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 22:39:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/03 22:25:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 23:33:57 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-
+#include <float.h>
 #include "solver.h"
+/*
+int solver_quadratic(const t_quadra quadra, double *t)
+{
+	double	delta;
+	double	dis[2];
 
+	delta = quadra.b * quadra.b - 4.0 * quadra.a * quadra.c;
+	if (delta < 0.0)
+		return (0);
+	delta = sqrt(delta);
+	dis[0] = (-quadra.b + delta) / (quadra.a * 0.5);
+	dis[1] = (-quadra.b - delta) / (quadra.a * 0.5);
+	if (dis[0] < 0.01 && dis[1] < 0.01)
+		return (0);
+	*t = (dis[0] < dis[1]) ? dis[0] : dis[1];
+	return (1);
+}*/
+
+int solver_quadratic(const t_quadra quadra, double *t)
+{
+double delta;
+	double x1;
+	double x2;
+
+	delta = quadra.b * quadra.b - 4.0 * quadra.a * quadra.c;
+	if (delta < 0.000001)
+		return (0);
+	x1 = (-quadra.b + sqrt(delta)) / (2.0 * quadra.a);
+	x2 = (-quadra.b - sqrt(delta)) / (2.0 * quadra.a);
+	if (x1 < x2 && x1 > 0.000001)
+    {
+		*t = x1;
+        return (1);
+    }
+	else if (x2 > 0.000001 && (x1 > x2 || x1 <= 0.000001))
+    {
+		*t = x2;
+        return (1);
+    }
+	else if (x1 < 0.000001 && x2 < 0.000001)
+    {
+		*t = DBL_MAX;
+        return (1);
+    }
+    return (0);
+}
+/*
 int solver_quadratic(const t_quadra quadra, double *t)
 {
     double delta;
@@ -44,4 +90,4 @@ int solver_quadratic(const t_quadra quadra, double *t)
         return (1);
     }
     return (0);
-}
+}*/

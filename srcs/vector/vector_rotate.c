@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 01:05:16 by kehuang           #+#    #+#             */
-/*   Updated: 2019/02/06 10:07:11 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 23:19:40 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ void	vector_rotate(t_vector *a, const t_vector *deg)
 	rotate_axis(&a->x, &a->y, rad.z);
 }
 
-void	vector_unrotate(t_vector *a, t_vector *deg)
+void	vector_unrotate(t_vector *a, const t_vector *deg)
 {
-	vector_multiply_const(deg, -1.0);
-	vector_rotate(a, deg);
+	t_vector	rad;
+
+	rad = vector_multiply_const_ret(deg, M_PI / 180.0);
+	rotate_axis(&a->y, &a->z, -rad.x);
+	rotate_axis(&a->z, &a->x, -rad.y);
+	rotate_axis(&a->x, &a->y, -rad.z);
 }
