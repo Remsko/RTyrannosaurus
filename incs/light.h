@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:07:12 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/27 18:35:40 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 11:32:19 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef enum    e_light_type
 typedef struct s_light
 {
     void    *spec;
-    //t_color color;
-    //double intensity;
+    t_color color;
+    double intensity;
     t_light_type type;
 } t_light;
 
