@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 19:02:43 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 11:28:21 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 16:45:54 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #include "json_getter.h"
 
-#include <stdio.h>
 t_material *parser_material(t_json_value *value)
 {
     t_material *mater;
