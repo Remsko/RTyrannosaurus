@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:36:31 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/30 20:03:35 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 22:10:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,5 @@ typedef struct	s_plane
     t_vector    normal;
     t_vector    rot;
 }				t_plane;
-/*
-t_vector	normal_cone(void const *obj, t_vector const ray_dir,
-		t_vector const hit_pos);
-t_vector	normal_cylinder(void const *obj, t_vector const ray_dir,
-		t_vector const hit_pos);
-t_vector	normal_plane(void const *obj, t_vector const ray_dir,
-		t_vector const hit_pos);
-t_vector	normal_sphere(void const *obj, t_vector const ray_dir,
-		t_vector const hit_pos);
-t_vector	get_normal(t_object const *obj, t_vector const ray_dir,
-		t_vector const hit_pos);
-*/
+
 #endif

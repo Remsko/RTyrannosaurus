@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 12:52:46 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 21:38:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 21:24:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ray.h"
 #include "libft.h"
 
-t_ray *new_ray(const t_camera *camera, const t_position *position)
+t_ray *new_camera_ray(const t_camera *camera, const t_position *position)
 {
     t_ray *ray;
 
