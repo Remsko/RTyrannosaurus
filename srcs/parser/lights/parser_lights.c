@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/27 00:29:34 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/01/31 12:59:00 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 11:34:11 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "parser.h"
 
 #include "json_types.h"
+#include "json_getter.h"
 
 static void parse_each(t_light *lights, t_json_array *a)
 {
@@ -31,6 +32,8 @@ static void parse_each(t_light *lights, t_json_array *a)
         o = (t_json_object *)a->value[index]->ptr;
         lights[index].type = parser_light_type(o);
         lights[index].spec = parser_light_spec(o, lights[index].type);
+        lights[index].color = parser_color(getter_by_key(o, "color"));
+        lights[index].intensity = parser_double(getter_by_key(o, "intensity"));
         ++index;
     }
 }

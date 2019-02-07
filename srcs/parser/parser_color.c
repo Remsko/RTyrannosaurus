@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 19:55:59 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/01 15:22:08 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 11:33:58 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_color parser_color(t_json_value *value)
             color.r = parser_double(a->value[0]);
             color.g = parser_double(a->value[1]);
             color.b = parser_double(a->value[2]);
+            nerf_color(&color);
         }
     }
     return (color);
