@@ -3,7 +3,7 @@
 	{
 		"viewplane": [2000, 1500],
 		"ambient-percentage": 30,
-		"anti-aliasing": 1
+		"anti-aliasing": 2
 	},
 	"camera":
 	{
