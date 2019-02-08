@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 21:23:56 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/06 21:07:33 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 23:20:10 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ t_vector	vector_normalize_ret(const t_vector *vector);
 */
 
 void	vector_rotate(t_vector *a, const t_vector *deg);
-void	vector_unrotate(t_vector *a, t_vector *deg);
+void	vector_unrotate(t_vector *a, const t_vector *deg);
 
 #endif

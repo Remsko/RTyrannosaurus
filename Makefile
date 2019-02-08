@@ -6,7 +6,7 @@
 #    By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 21:15:08 by rpinoit           #+#    #+#              #
-#    Updated: 2019/02/07 22:15:12 by rpinoit          ###   ########.fr        #
+#    Updated: 2019/02/07 22:52:22 by rpinoit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,7 +130,12 @@ SRC_SUB += tracer/sampler
 SRC_NAME += jittered_sample.c
 SRC_NAME += regular_sample.c
 
+SRC_SUB += light
+SRC_NAME += phong_shading.c
+SRC_NAME += shadow.c
+
 SRC_SUB += normal
+SRC_NAME += new_normal.c
 SRC_NAME += normal_cone.c
 SRC_NAME += normal_cylinder.c
 SRC_NAME += normal_sphere.c

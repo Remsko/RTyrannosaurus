@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hit.c                                              :+:      :+:    :+:   */
+/*   shadow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 09:53:35 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/08 17:42:53 by rpinoit          ###   ########.fr       */
+/*   Created: 2019/02/07 22:35:40 by rpinoit           #+#    #+#             */
+/*   Updated: 2019/02/08 17:58:41 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include <float.h>
-
-#include "intersection.h"
-#include "object.h"
+#include "scene.h"
 #include "ray.h"
+#include "object.h"
+#include "intersection.h"
 
-t_object *hit(double *t, t_ray *ray, t_object *objects, int n_object)
+static bool hard_shadow(t_scene *scene, t_ray *light_ray, double distance)
 {
     t_object *victim;
-    double tmp;
-    int index;
+    double t;
 
-    victim = NULL;
-    *t = DBL_MAX;
-    index = 0;
-    while (index < n_object)
+    if ((victim = hit(&t, light_ray, scene->objects, scene->n_object)) != NULL)
     {
-        if (intersection_spec(ray, &objects[index], &tmp))
-        {
-            if (tmp > 0.0 && tmp < *t)
-            {
-			    *t = tmp;
-                victim = &objects[index];
-            }
-        }
-        ++index;
+        if (t < distance)
+            return (true);
     }
-    return (victim);
+    return (false);
+}
+
+bool shadow(t_scene *scene, t_ray *light_ray, double distance)
+{
+    return (hard_shadow(scene, light_ray, distance));
 }

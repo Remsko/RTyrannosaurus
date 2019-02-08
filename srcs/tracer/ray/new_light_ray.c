@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 21:22:47 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 21:39:55 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:37:51 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_ray *point_light_ray(void *light, t_vector *hit)
     point = (t_point *)light;
     if ((ray = (t_ray *)malloc(sizeof(t_ray))) != NULL)
     {
-        ray->origin = point->source;
+        ray->origin = *hit;
         ray->direction = vector_sub_ret(&point->source, hit);
     }
     return (ray);

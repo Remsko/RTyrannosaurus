@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 09:48:06 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 16:32:19 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/07 23:56:28 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@
 
 #include "libft.h"
 
+t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hit);
+
 t_color throw_ray(t_scene *scene, t_ray *ray)
 {
     t_object *victim;
+    t_vector hit_;
     t_color object_color;
     double t;
 
     if ((victim = hit(&t, ray, scene->objects, scene->n_object)) != NULL)
     {
-        object_color = color_multiply_const_ret(&victim->mater->ambient, scene->config->ambient);
+        t_vector tmp = vector_multiply_const_ret(&ray->direction, t);
+        hit_ = vector_add_ret(&ray->origin, &tmp);
+        object_color = phong_shading(scene, victim, ray, &hit_);
         color_to_range_0_255(&object_color);
     }
     else

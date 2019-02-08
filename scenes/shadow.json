@@ -1,13 +1,13 @@
 {
 	"config":
 	{
-		"viewplane": [2000, 1500],
+		"viewplane": [1000, 750],
 		"ambient-percentage": 10,
-		"anti-aliasing": 2
+		"anti-aliasing": 1
 	},
 	"camera":
 	{
-		"position": [0, 0, -100],
+		"position": [0, 0, -300],
 		"rotation": [0, 0, 0],
 		"fov": 90
 	},
@@ -25,19 +25,33 @@
 				"alpha": 50
 			},
 			"radius": 50
+		},
+		{
+			"type": "plane",
+			"center": [0, -40, 0],
+			"rot": [0, 0, 0],
+			"material":
+			{
+				"ambient": [155, 155, 155],
+				"diffuse": [255, 255, 255],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"normal": [0, 1, 0],
+			"radius": 50
 		}
 	],
 	"lights":
 	[
 		{
 			"type": "point",
-			"source": [0, 100, -100],
+			"source": [60, 60, -60],
 			"color": [200, 155, 5],
 			"intensity": 0.7
 		},
 		{
 			"type": "point",
-			"source": [100, 150, -300],
+			"source": [-60, 60, -60],
 			"color": [250, 5, 135],
 			"intensity": 0.4
 		}

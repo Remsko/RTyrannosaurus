@@ -2,12 +2,12 @@
 	"config":
 	{
 		"viewplane": [2000, 1500],
-		"ambient-percentage": 30,
-		"anti-aliasing": 2
+		"ambient-percentage": 10,
+		"anti-aliasing": 1
 	},
 	"camera":
 	{
-		"position": [0, 0, -400],
+		"position": [0, 50, -1000],
 		"rotation": [0, 0, 0],
 		"fov": 90
 	},
@@ -20,11 +20,24 @@
 			"material":
 			{
 				"ambient": [255, 205, 155],
-				"diffuse": [255, 255, 255],
+				"diffuse": [255, 205, 155],
 				"specular": [255, 255, 255],
 				"alpha": 50
 			},
 			"radius": 50
+		},
+		{
+			"type": "sphere",
+			"center": [-50, 0, 0],
+			"rot": [0, 0, 0],
+			"material":
+			{
+				"ambient": [55, 205, 155],
+				"diffuse": [55, 205, 155],
+				"specular": [255, 255, 255],
+				"alpha": 50
+			},
+			"radius": 70
         },
         {
 			"type": "sphere",
@@ -33,7 +46,7 @@
 			"material":
 			{
 				"ambient": [15, 145, 145],
-				"diffuse": [255, 255, 255],
+				"diffuse": [15, 145, 145],
 				"specular": [255, 255, 255],
 				"alpha": 50
 			},
@@ -41,25 +54,25 @@
         },
         {
 			"type": "plane",
-			"center": [0, -10, 0],
+			"center": [0, -500, 0],
             "rot": [0, 0, 0],
             "normal": [0, 1, 0],
 			"material":
 			{
 				"ambient": [200, 105, 155],
-				"diffuse": [255, 255, 255],
+				"diffuse": [200, 105, 155],
 				"specular": [255, 255, 255],
 				"alpha": 50
 			}
         },
         {
 			"type": "cylinder",
-			"center": [200, 50, 0],
-			"rot": [-30, -30, -30],
+			"center": [200, 50, 400],
+			"rot": [0, 0, 0],
 			"material":
 			{
 				"ambient": [15, 205, 55],
-				"diffuse": [255, 255, 255],
+				"diffuse": [15, 205, 55],
 				"specular": [255, 255, 255],
 				"alpha": 50
 			},
@@ -67,12 +80,12 @@
         },
         {
 			"type": "cone",
-			"center": [-200, 100, -100],
-			"rot": [60, 30, 0],
+			"center": [-200, 100, 400],
+			"rot": [0, 0, 0],
 			"material":
 			{
 				"ambient": [155, 5, 55],
-				"diffuse": [255, 255, 255],
+				"diffuse": [155, 5, 55],
 				"specular": [255, 255, 255],
 				"alpha": 50
 			},
@@ -83,9 +96,21 @@
 	[
 		{
 			"type": "point",
-			"source": [0, 100, 100],
-			"color": [255, 255, 255],
+			"source": [1000, 500, -500],
+			"color": [0, 255, 255],
 			"intensity": 0.3
+		},
+		{
+			"type": "point",
+			"source": [1000, 500, 1500],
+			"color": [255, 255, 0],
+			"intensity": 0.4
+		},
+		{
+			"type": "point",
+			"source": [-1000, 500, -500],
+			"color": [255, 0, 255],
+			"intensity": 0.5
 		}
 	]
 }

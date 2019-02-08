@@ -6,12 +6,12 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 22:39:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/03 22:25:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 22:05:34 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-
+#include <float.h>
 #include "solver.h"
 
 int solver_quadratic(const t_quadra quadra, double *t)
