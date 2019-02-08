@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:35:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/08 17:33:24 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:39:52 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static t_color diffuse(t_object *object, t_light *light, double cos_teta)
 #include <stdio.h>
 t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hit)
 {
-    //t_ray *light_ray;
+    t_ray *light_ray;
     t_vector normal;
     t_color shading;
     double distance;
@@ -52,28 +52,18 @@ t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hi
     index = 0;
     while (index < scene->n_light)
     {
-        t_light *light = &scene->lights[index];
-        t_ray tmpray;
-        tmpray.origin = *hit;
-        tmpray.direction = vector_sub_ret(&((t_point *)light->spec)->source, hit);
-        //light_ray = new_light_ray(light, hit);
-        distance = vector_magnitude(&tmpray.direction);
-        //printf("%f\n", distance);
-        vector_normalize(&tmpray.direction);
-        if (shadow(scene, &tmpray, distance) == false)
+        light_ray = new_light_ray(&scene->lights[index], hit);
+        distance = vector_magnitude(&light_ray->direction);
+        vector_normalize(&light_ray->direction);
+        if (shadow(scene, light_ray, distance) == false)
         {
             normal = new_normal(victim, ray, hit);
-            cos_teta = vector_dot_product(&tmpray.direction, &normal);
+            cos_teta = vector_dot_product(&light_ray->direction, &normal);
             if (cos_teta > 0.0)
                 color_add(&shading, diffuse(victim, &scene->lights[index], cos_teta)); 
         }
-        //free(light_ray);
+        free(light_ray);
         ++index;
     }
     return (shading);
 }
-
-/*
-Ray lightRay = new Ray(new Point3D(intersection.position),
-				new Vector3D(this.position.sub(intersection.position)));
-                */

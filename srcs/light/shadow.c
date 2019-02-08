@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:35:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/08 17:34:30 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:37:04 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "object.h"
 #include "intersection.h"
 
-
-#include <stdio.h>
 static bool hard_shadow(t_scene *scene, t_ray *light_ray, double distance)
 {
     t_object *victim;
