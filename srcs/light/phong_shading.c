@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:35:32 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/08 17:29:37 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:33:24 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,6 @@
 #include "intersection.h"
 
 bool shadow(t_scene *scene, t_ray *light_ray, double distance);
-
-bool shadow_(t_scene *scene, t_ray *light_ray, double distance)
-{
-    t_object *victim;
-    double t;
-
-    t = DBL_MAX;
-    //printf("scene->n_object = %d\n", scene->n_object);
-    if (/*printf("shadow\n") && */(victim = hit(&t, light_ray, scene->objects, scene->n_object)) != NULL)
-    {
-        //printf("hitted\n");
-        if (t < distance)
-            return (true);
-    }
-    return (false);
-}
 
 static t_color ambient(t_object *object, double ambient)
 {
@@ -76,7 +60,7 @@ t_color phong_shading(t_scene *scene, t_object *victim, t_ray *ray, t_vector *hi
         distance = vector_magnitude(&tmpray.direction);
         //printf("%f\n", distance);
         vector_normalize(&tmpray.direction);
-        if (shadow_(scene, &tmpray, distance) == false)
+        if (shadow(scene, &tmpray, distance) == false)
         {
             normal = new_normal(victim, ray, hit);
             cos_teta = vector_dot_product(&tmpray.direction, &normal);

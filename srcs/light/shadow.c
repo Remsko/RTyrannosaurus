@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:35:40 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/08 15:52:02 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:34:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ static bool hard_shadow(t_scene *scene, t_ray *light_ray, double distance)
     double t;
 
     t = DBL_MAX;
-    //printf("scene->n_object = %d\n", scene->n_object);
-    if (printf("shadow\n") && (victim = hit(&t, light_ray, scene->objects, scene->n_object)) != NULL)
+    if ((victim = hit(&t, light_ray, scene->objects, scene->n_object)) != NULL)
     {
-        printf("hitted\n");
         if (t < distance)
             return (true);
     }
@@ -38,8 +36,5 @@ static bool hard_shadow(t_scene *scene, t_ray *light_ray, double distance)
 
 bool shadow(t_scene *scene, t_ray *light_ray, double distance)
 {
-    bool shadow_ = hard_shadow(scene, light_ray, distance);
-
-    printf(shadow_ ? "true\n" : "false\n");
-    return (shadow_);
+    return (hard_shadow(scene, light_ray, distance));
 }
