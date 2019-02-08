@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 22:01:43 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 22:16:16 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 20:19:46 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_vector normal_cone(void *object, t_ray *ray, t_vector *hit)
     cone = (t_cone *)object;
     normal = vector_sub_ret(hit, &cone->center);
     vector_rotate(&normal, &cone->rot);
-    normal.y *= -tan(pow(cone->radius, 2));
+    normal.y *= -1;//-tan(pow(cone->radius, 2));
     vector_unrotate(&normal, &cone->rot);
     vector_normalize(&normal);
     return (normal);
