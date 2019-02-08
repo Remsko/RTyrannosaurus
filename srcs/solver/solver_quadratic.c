@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 22:39:49 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/07 23:33:57 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 14:10:45 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int solver_quadratic(const t_quadra quadra, double *t)
 	*t = (dis[0] < dis[1]) ? dis[0] : dis[1];
 	return (1);
 }*/
-
+/*
 int solver_quadratic(const t_quadra quadra, double *t)
 {
-double delta;
+    double delta;
 	double x1;
 	double x2;
 
@@ -58,8 +58,8 @@ double delta;
         return (1);
     }
     return (0);
-}
-/*
+}*/
+
 int solver_quadratic(const t_quadra quadra, double *t)
 {
     double delta;
@@ -90,4 +90,4 @@ int solver_quadratic(const t_quadra quadra, double *t)
         return (1);
     }
     return (0);
-}*/
+}

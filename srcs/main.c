@@ -6,7 +6,7 @@
 /*   By: rpinoit <rpinoit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:08 by rpinoit           #+#    #+#             */
-/*   Updated: 2019/02/04 18:53:43 by rpinoit          ###   ########.fr       */
+/*   Updated: 2019/02/08 11:29:30 by rpinoit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 			return (1);
 		v.screen.width = (int)scene->config->viewplane.width;
 		v.screen.height = (int)scene->config->viewplane.height;
-		scene->camera->distance = scene->config->viewplane.width / 2.0 / tan(scene->camera->fov / 2.0 * M_PI / 180.0);
+		scene->camera->distance = scene->config->viewplane.height / 2.0 / tan(scene->camera->fov / 2.0 * M_PI / 180.0);
 		sdl_init(&v);
 		sdl_loop(scene, &v);
 		sdl_destroy(&v);

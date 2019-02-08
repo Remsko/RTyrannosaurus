@@ -7,7 +7,7 @@
 	},
 	"camera":
 	{
-		"position": [0, 0, -400],
+		"position": [0, 300, -300],
 		"rotation": [0, 0, 0],
 		"fov": 90
 	},
@@ -54,7 +54,7 @@
         },
         {
 			"type": "cylinder",
-			"center": [200, 50, 0],
+			"center": [200, 50, 400],
 			"rot": [0, 0, 0],
 			"material":
 			{
@@ -67,8 +67,8 @@
         },
         {
 			"type": "cone",
-			"center": [-200, 100, -100],
-			"rot": [0, 0, 0],
+			"center": [-200, 100, 400],
+			"rot": [-30, 30, -30],
 			"material":
 			{
 				"ambient": [155, 5, 55],
@@ -82,10 +82,9 @@
 	"lights":
 	[
 		{
-			"type": "directional",
-			"source": [50, 50, -300],
+			"type": "point",
+			"source": [500, 500, -500],
 			"color": [255, 255, 255],
-			"normal": [0, 0, 1],
 			"intensity": 0.3
 		}
 	]
